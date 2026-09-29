@@ -15,4 +15,4 @@ Las páginas son HTML estático y pueden actualizarse directamente sin proceso d
 ## Fichas activas
 
 - https://aljoruri.github.io/caminarte/obra/el-cuervo/
-- https://aljoruri.github.io/caminarte/obra/pez-puntalarga/
+- https://aljoruri.github.io/caminarte/obra/pez-puntalarga/\n- https://aljoruri.github.io/caminarte/obra/el-lagar/\n- https://aljoruri.github.io/caminarte/obra/el-tamboril/
