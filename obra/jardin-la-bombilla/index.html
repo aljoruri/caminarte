@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#2C1A0E">
+  <title>Jardín de La Bombilla · CaminArte · Herrumbre Vivo</title>
+  <meta name="description" content="Jardín de La Bombilla, intervención de Herrumbre Vivo en Los Llanos de Aridane. Arte con materiales recuperados, participación vecinal y sensibilización ambiental.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+  <style>
+    :root{--marron:#2C1A0E;--marron-oscuro:#1C1008;--dorado:#C8A84B;--arena:#D4B96A;--crema:#FAF6F0;--gris:#7A6A5A;--granate:#8B1A1A;--texto:#25211d}
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{min-height:100vh;background:#eee9e2;color:var(--texto);font-family:'DM Sans',sans-serif}
+    .page{min-height:100vh;background:var(--crema);max-width:480px;margin:0 auto;box-shadow:0 0 24px rgba(0,0,0,.08)}
+    header{background:var(--marron);padding:10px 18px;display:flex;align-items:center;gap:8px;position:sticky;top:0;z-index:50;border-bottom:3px solid var(--dorado)}
+    .header-title{flex:1;font-family:'Playfair Display',serif;font-size:13px;color:var(--arena);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .header-brand{font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--dorado);font-weight:600;flex-shrink:0}
+    .hero{position:relative;height:60vh;min-height:360px;overflow:hidden;background:#18130f}
+    .hero img{width:100%;height:100%;object-fit:cover;display:block}
+    .hero-gradient{position:absolute;inset:auto 0 0;height:62%;background:linear-gradient(to top,rgba(20,10,5,.96),transparent);pointer-events:none}
+    .hero-copy{position:absolute;left:0;right:0;bottom:0;padding:26px 22px 22px}
+    .eyebrow{display:inline-block;padding:4px 9px;border:1px solid rgba(212,185,106,.35);background:rgba(44,26,14,.5);color:var(--arena);font-size:9px;letter-spacing:.13em;text-transform:uppercase;border-radius:4px;margin-bottom:9px;backdrop-filter:blur(4px)}
+    .hero h1{font-family:'Playfair Display',serif;font-size:2.35rem;color:#fff;line-height:1.04;margin-bottom:6px;font-weight:400}
+    .hero-subtitle{font-size:12px;color:var(--arena);font-weight:300}
+    .gallery-strip{display:flex;gap:8px;padding:18px 22px;overflow-x:auto;scrollbar-width:none;border-bottom:1px solid rgba(120,100,80,.13)}
+    .gallery-strip::-webkit-scrollbar{display:none}
+    .gallery-strip img{height:100px;width:150px;object-fit:cover;border-radius:7px;flex-shrink:0;border:1px solid rgba(120,100,80,.12)}
+    .lang-bar{background:var(--marron);padding:12px 18px;display:flex;gap:7px;overflow-x:auto;border-top:1px solid rgba(212,185,106,.15);scrollbar-width:none;position:sticky;top:39px;z-index:40}
+    .lang-bar::-webkit-scrollbar{display:none}
+    .lang-btn{flex-shrink:0;padding:6px 15px;border-radius:20px;border:1px solid rgba(212,185,106,.25);background:transparent;color:var(--arena);font-family:'DM Sans',sans-serif;font-size:12px;cursor:pointer;transition:.15s ease}
+    .lang-btn.active{background:var(--dorado);border-color:var(--dorado);color:#1a1a1a}
+    .section{padding:25px 22px;border-bottom:1px solid rgba(120,100,80,.13)}
+    .section.tint{background:rgba(44,26,14,.035)}
+    .section-label{display:flex;align-items:center;gap:7px;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--gris);margin-bottom:12px}
+    .section-label::before{content:"";width:16px;height:1px;background:var(--dorado);display:block}
+    .description{font-size:14.5px;line-height:1.74;color:#2a2a2a;font-weight:300}
+    .description p+p{margin-top:13px}
+    .location{font-size:13.5px;color:var(--gris);margin-bottom:13px}
+    .map{width:100%;height:200px;border:0;border-radius:8px;margin:13px 0;display:block}
+    .maps-btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:13px;background:var(--granate);color:#fff;border-radius:8px;text-decoration:none;font-size:14px;font-weight:500;transition:.15s ease}
+    .maps-btn:hover{background:#6B1212}
+    .poi-list{display:flex;flex-direction:column;gap:9px;margin-top:4px}
+    .poi-card{display:flex;align-items:center;padding:13px 15px;border:1px solid rgba(120,100,80,.2);border-radius:10px;gap:11px;background:#fff}
+    .poi-info{flex:1}.poi-name{font-size:13.5px;font-weight:500;margin-bottom:2px}.poi-cat{font-size:11.5px;color:var(--gris)}
+    .artist-head{display:flex;align-items:center;gap:14px;margin-bottom:16px}
+    .artist-photo{width:72px;height:72px;border-radius:50%;overflow:hidden;flex-shrink:0;background:var(--marron);border:2px solid rgba(200,168,75,.4)}
+    .artist-photo img{width:100%;height:100%;object-fit:cover;display:block}
+    .artist-name{font-family:'Playfair Display',serif;font-size:16px;margin-bottom:3px}
+    .artist-role{font-size:11px;color:var(--gris);line-height:1.5}
+    footer{background:var(--marron-oscuro);padding:25px 22px;display:flex;flex-direction:column;align-items:center;gap:9px;border-top:3px solid var(--dorado);text-align:center}
+    .footer-brand{font-family:'Playfair Display',serif;font-size:20px;color:var(--arena);text-decoration:none}
+    .footer-small{color:rgba(212,185,106,.58);font-size:10px;line-height:1.5}
+    .lang-panel{display:none}.lang-panel.active{display:block}
+    @media(min-width:600px){.page{max-width:900px}.hero{height:55vh;min-height:440px}.hero h1{font-size:3.1rem}header{padding:12px 28px}.section{padding:30px 32px}.gallery-strip{padding:20px 32px}.gallery-strip img{height:130px;width:200px}.lang-bar{padding:14px 28px;top:43px}.map{height:280px}.poi-list{display:grid;grid-template-columns:1fr 1fr;gap:10px}}
+  </style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <div class="header-title">Jardín de La Bombilla · Los Llanos de Aridane</div>
+    <div class="header-brand">Herrumbre Vivo</div>
+  </header>
+
+  <div class="hero">
+    <img src="https://raw.githubusercontent.com/herrumbrevivo/bbaja/main/img/bombilla-principal.jpg" alt="Jardín de La Bombilla">
+    <div class="hero-gradient"></div>
+    <div class="hero-copy">
+      <div class="eyebrow">CaminArte · Herrumbre Vivo · Los Llanos de Aridane</div>
+      <h1>Jardín de La Bombilla</h1>
+      <p class="hero-subtitle">La Bombilla · Herrumbre Vivo · 2025</p>
+    </div>
+  </div>
+
+  <div class="gallery-strip">
+    <img src="https://raw.githubusercontent.com/herrumbrevivo/bbaja/main/img/bombilla-conjunto.jpg" alt="Vista general del Jardín de La Bombilla">
+    <img src="https://raw.githubusercontent.com/herrumbrevivo/bbaja/main/img/bombilla-escultura.jpg" alt="Escultura de Herrumbre Vivo en La Bombilla">
+    <img src="https://raw.githubusercontent.com/herrumbrevivo/bbaja/main/img/bombilla-detalle.jpg" alt="Detalle de una escultura del jardín">
+  </div>
+
+  <div class="lang-bar">
+    <button class="lang-btn active" data-lang="es">Español</button>
+    <button class="lang-btn" data-lang="en">English</button>
+    <button class="lang-btn" data-lang="de">Deutsch</button>
+    <button class="lang-btn" data-lang="fr">Français</button>
+  </div>
+
+  <main class="lang-panel active" id="lang-es">
+    <section class="section">
+      <div class="section-label">Sobre la actuación</div>
+      <div class="description">
+        <p>En 2025 se desarrolló una actuación de recuperación y puesta en valor de este jardín del barrio de La Bombilla, en Los Llanos de Aridane. La intervención combinó labores de limpieza, acondicionamiento y mejora del espacio con la incorporación de esculturas de <strong>Herrumbre Vivo</strong>, integradas en el entorno como parte de una propuesta artística y ambiental.</p>
+        <p>Las obras que forman parte del jardín fueron creadas principalmente a partir de <strong>metales reciclados, piezas recuperadas y materiales reutilizados</strong>. Elementos que habían perdido su función original adquieren así una nueva vida mediante el trabajo artístico, transformándose en esculturas que relacionan arte, reciclaje y sostenibilidad.</p>
+        <p>De esta manera, las piezas no funcionan únicamente como elementos decorativos, sino también como una invitación a reflexionar sobre el aprovechamiento de los recursos, la generación de residuos y las posibilidades de la reutilización dentro de la creación artística.</p>
+        <p>El proyecto contó con la colaboración de la <strong>Asociación de Vecinos Varadero La Bombilla</strong> y fue financiado por las áreas de <strong>Turismo y Medio Ambiente del Ayuntamiento de Los Llanos de Aridane</strong>.</p>
+        <p>Las esculturas forman un <strong>conjunto artístico integrado en el jardín</strong> y no cuentan con títulos individuales.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-label">Arte y sensibilización ambiental</div>
+      <div class="description">
+        <p>La actuación combina la recuperación del espacio, la participación vecinal y la presencia de obras de <strong>Herrumbre Vivo</strong> con una vertiente de sensibilización ambiental. La utilización de metales reciclados y materiales recuperados refuerza el mensaje de que aquello que se considera residuo puede transformarse y adquirir un nuevo valor mediante la creatividad y la reutilización.</p>
+        <p>Como continuación de esta filosofía, el <strong>26 de agosto de 2026</strong> se realizó en La Bombilla un <strong>taller ambiental dedicado al medio marino</strong>, enmarcado dentro de las <strong>fiestas de La Bombilla</strong>. La actividad permitió acercar a los participantes diferentes cuestiones relacionadas con el conocimiento, la conservación y la protección de nuestros mares y costas.</p>
+        <p>Ese mismo día se llevó a cabo la <strong>instalación del código QR del jardín</strong>, incorporando este espacio al proyecto CaminArte. Mediante este recurso digital, vecinos y visitantes pueden acceder desde sus dispositivos móviles a información sobre la actuación, las obras, su autor y el contexto artístico y ambiental del proyecto.</p>
+        <p>La combinación de intervención artística, educación ambiental y acceso digital a la información permite que el jardín continúe funcionando como un espacio de divulgación más allá de las actividades realizadas presencialmente.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-label">Ubicación</div>
+      <p class="location">Barrio de La Bombilla · Los Llanos de Aridane</p>
+      <iframe class="map" src="https://www.openstreetmap.org/export/embed.html?bbox=-17.9260%2C28.5889%2C-17.9134%2C28.5968&layer=mapnik&marker=28.592890081015398%2C-17.919696792896666" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <a class="maps-btn" href="https://www.google.com/maps?q=28.592890081015398,-17.919696792896666" target="_blank" rel="noopener noreferrer">⌖ Abrir en Google Maps</a>
+    </section>
+
+    <section class="section">
+      <div class="section-label">Colaboración</div>
+      <div class="poi-list">
+        <div class="poi-card"><div class="poi-info"><div class="poi-name">Asociación de Vecinos Varadero La Bombilla</div><div class="poi-cat">Colaboración vecinal</div></div></div>
+        <div class="poi-card"><div class="poi-info"><div class="poi-name">Ayuntamiento de Los Llanos de Aridane</div><div class="poi-cat">Financiación · Áreas de Turismo y Medio Ambiente</div></div></div>
+      </div>
+    </section>
+
+    <section class="section tint">
+      <div class="section-label">El artista</div>
+      <div class="artist-head">
+        <div class="artist-photo"><img src="https://raw.githubusercontent.com/herrumbrevivo/bbaja/main/img/gustavo.jpg" alt="Gustavo Díaz"></div>
+        <div><div class="artist-name">Gustavo Díaz</div><div class="artist-role">Artista del reciclado · Activista medioambiental · Gestor de residuos</div></div>
+      </div>
+      <div class="description">
+        <p>Natural de Fuencaliente, Gustavo Díaz crea bajo la marca Herrumbre Vivo proyectos que combinan arte, sostenibilidad, identidad cultural y participación ciudadana. Transforma materiales en desuso en esculturas e instalaciones que ponen en valor las tradiciones y el patrimonio de Canarias.</p>
+        <p>Es el creador e impulsor de CaminArte, un innovador proyecto de geolocalización cultural e itinerarios artísticos sostenibles que fusiona la memoria histórica, el paisaje palmero y el arte del metal reciclado en favor del medio ambiente.</p>
+      </div>
+    </section>
+  </main>
+
+  <main class="lang-panel" id="lang-en">
+    <section class="section"><div class="section-label">About the project</div><div class="description">
+      <p>In 2025, a project was carried out to restore and enhance this garden in the neighbourhood of La Bombilla, in Los Llanos de Aridane. The intervention combined cleaning, conditioning and improvement work with the installation of sculptures by <strong>Herrumbre Vivo</strong>, integrated into the surroundings as part of an artistic and environmental project.</p>
+      <p>The works in the garden were created mainly from <strong>recycled metals, recovered pieces and reused materials</strong>. Objects that had lost their original purpose were given a new life through artistic creation, becoming sculptures that connect art, recycling and sustainability.</p>
+      <p>In this way, the pieces are not only decorative elements but also an invitation to reflect on the use of resources, waste generation and the possibilities of reuse within artistic creation.</p>
+      <p>The project was developed with the collaboration of the <strong>Varadero La Bombilla Residents' Association</strong> and was funded by the <strong>Tourism and Environment Departments of Los Llanos de Aridane Town Council</strong>.</p>
+      <p>The sculptures form an <strong>artistic ensemble integrated into the garden</strong> and do not have individual titles.</p>
+    </div></section>
+    <section class="section"><div class="section-label">Art and environmental awareness</div><div class="description">
+      <p>The project combines the recovery of the space, community participation and works by <strong>Herrumbre Vivo</strong> with an environmental awareness component. The use of recycled metals and recovered materials reinforces the idea that what is considered waste can be transformed and given new value through creativity and reuse.</p>
+      <p>As a continuation of this philosophy, on <strong>26 August 2026</strong> an <strong>environmental workshop focused on the marine environment</strong> was held in La Bombilla as part of the <strong>La Bombilla local festivities</strong>.</p>
+      <p>On the same day, the garden's <strong>QR code was installed</strong>, incorporating the site into the CaminArte project. Through this digital resource, residents and visitors can access information about the intervention, the artworks, their creator and the artistic and environmental context of the project.</p>
+      <p>The combination of artistic intervention, environmental education and digital access to information allows the garden to continue operating as a space for outreach and awareness beyond the activities held in person.</p>
+    </div></section>
+    <section class="section"><div class="section-label">Location</div><p class="location">La Bombilla neighbourhood · Los Llanos de Aridane</p><iframe class="map" src="https://www.openstreetmap.org/export/embed.html?bbox=-17.9260%2C28.5889%2C-17.9134%2C28.5968&layer=mapnik&marker=28.592890081015398%2C-17.919696792896666" loading="lazy"></iframe><a class="maps-btn" href="https://www.google.com/maps?q=28.592890081015398,-17.919696792896666" target="_blank" rel="noopener noreferrer">⌖ Open in Google Maps</a></section>
+    <section class="section tint"><div class="section-label">The artist</div><div class="artist-head"><div class="artist-photo"><img src="https://raw.githubusercontent.com/herrumbrevivo/bbaja/main/img/gustavo.jpg" alt="Gustavo Díaz"></div><div><div class="artist-name">Gustavo Díaz</div><div class="artist-role">Recycling artist · Environmental activist · Waste manager</div></div></div><div class="description"><p>Born in Fuencaliente, Gustavo Díaz creates projects under the Herrumbre Vivo brand that combine art, sustainability, cultural identity and citizen participation. He transforms discarded materials into sculptures and installations that highlight the traditions and heritage of the Canary Islands.</p><p>He is the creator and driving force behind CaminArte, an innovative cultural geolocation and sustainable artistic itinerary project that brings together historical memory, the landscape of La Palma and recycled-metal art in support of the environment.</p></div></section>
+  </main>
+
+  <main class="lang-panel" id="lang-de">
+    <section class="section"><div class="section-label">Über das Projekt</div><div class="description">
+      <p>Im Jahr 2025 wurde eine Maßnahme zur Wiederherstellung und Aufwertung dieses Gartens im Viertel La Bombilla in Los Llanos de Aridane durchgeführt. Die Arbeiten umfassten Reinigung, Aufbereitung und Verbesserung des Bereichs sowie die Einbindung von Skulpturen von <strong>Herrumbre Vivo</strong>.</p>
+      <p>Die im Garten ausgestellten Werke wurden hauptsächlich aus <strong>recycelten Metallen, wiedergewonnenen Teilen und wiederverwendeten Materialien</strong> geschaffen. Gegenstände, die ihre ursprüngliche Funktion verloren hatten, erhalten durch die künstlerische Bearbeitung ein neues Leben.</p>
+      <p>Das Projekt wurde in Zusammenarbeit mit dem <strong>Nachbarschaftsverein Varadero La Bombilla</strong> durchgeführt und von den Bereichen <strong>Tourismus und Umwelt der Stadtverwaltung von Los Llanos de Aridane</strong> finanziert.</p>
+      <p>Die Skulpturen bilden ein <strong>in den Garten integriertes künstlerisches Ensemble</strong> und besitzen keine individuellen Titel.</p>
+    </div></section>
+    <section class="section"><div class="section-label">Kunst und Umweltbewusstsein</div><div class="description">
+      <p>Die Maßnahme verbindet die Wiederherstellung des Ortes, die Beteiligung der Nachbarschaft und Werke von <strong>Herrumbre Vivo</strong> mit einem Schwerpunkt auf Umweltbildung.</p>
+      <p>Am <strong>26. August 2026</strong> fand in La Bombilla ein <strong>Umweltworkshop zum Thema Meer und Küste</strong> im Rahmen der <strong>Festlichkeiten von La Bombilla</strong> statt. Am selben Tag wurde auch der <strong>QR-Code des Gartens installiert</strong> und der Ort in CaminArte aufgenommen.</p>
+      <p>Die Verbindung von Kunst, Umweltbildung und digitalem Informationszugang macht den Garten auch über die vor Ort durchgeführten Aktivitäten hinaus zu einem dauerhaften Ort der Vermittlung und Sensibilisierung.</p>
+    </div></section>
+    <section class="section"><div class="section-label">Standort</div><p class="location">Viertel La Bombilla · Los Llanos de Aridane</p><iframe class="map" src="https://www.openstreetmap.org/export/embed.html?bbox=-17.9260%2C28.5889%2C-17.9134%2C28.5968&layer=mapnik&marker=28.592890081015398%2C-17.919696792896666" loading="lazy"></iframe><a class="maps-btn" href="https://www.google.com/maps?q=28.592890081015398,-17.919696792896666" target="_blank" rel="noopener noreferrer">⌖ In Google Maps öffnen</a></section>
+    <section class="section tint"><div class="section-label">Der Künstler</div><div class="artist-head"><div class="artist-photo"><img src="https://raw.githubusercontent.com/herrumbrevivo/bbaja/main/img/gustavo.jpg" alt="Gustavo Díaz"></div><div><div class="artist-name">Gustavo Díaz</div><div class="artist-role">Recycling-Künstler · Umweltaktivist · Abfallmanager</div></div></div><div class="description"><p>Gustavo Díaz stammt aus Fuencaliente. Unter der Marke Herrumbre Vivo schafft er Projekte, die Kunst, Nachhaltigkeit, kulturelle Identität und Bürgerbeteiligung verbinden. Er verwandelt ausrangierte Materialien in Skulpturen und Installationen, die die Traditionen und das Erbe der Kanarischen Inseln sichtbar machen.</p><p>Er ist Schöpfer und Initiator von CaminArte, einem innovativen Projekt für kulturelle Geolokalisierung und nachhaltige Kunstrouten, das historische Erinnerung, die Landschaft La Palmas und Kunst aus recyceltem Metall im Sinne des Umweltschutzes miteinander verbindet.</p></div></section>
+  </main>
+
+  <main class="lang-panel" id="lang-fr">
+    <section class="section"><div class="section-label">À propos du projet</div><div class="description">
+      <p>En 2025, une intervention de récupération et de mise en valeur de ce jardin du quartier de La Bombilla, à Los Llanos de Aridane, a été réalisée. Le projet a combiné des travaux de nettoyage, d'aménagement et d'amélioration de l'espace avec l'installation de sculptures de <strong>Herrumbre Vivo</strong>.</p>
+      <p>Les œuvres présentes dans le jardin ont été créées principalement à partir de <strong>métaux recyclés, de pièces récupérées et de matériaux réutilisés</strong>. Des éléments ayant perdu leur fonction d'origine acquièrent ainsi une nouvelle vie grâce au travail artistique.</p>
+      <p>Le projet a bénéficié de la collaboration de l'<strong>Association de quartier Varadero La Bombilla</strong> et a été financé par les services de <strong>Tourisme et d'Environnement de la mairie de Los Llanos de Aridane</strong>.</p>
+      <p>Les sculptures constituent un <strong>ensemble artistique intégré au jardin</strong> et ne possèdent pas de titres individuels.</p>
+    </div></section>
+    <section class="section"><div class="section-label">Art et sensibilisation environnementale</div><div class="description">
+      <p>L'intervention associe la récupération de l'espace, la participation des habitants et les œuvres de <strong>Herrumbre Vivo</strong> à une démarche de sensibilisation environnementale.</p>
+      <p>Le <strong>26 août 2026</strong>, un <strong>atelier environnemental consacré au milieu marin</strong> a été organisé à La Bombilla dans le cadre des <strong>fêtes de La Bombilla</strong>. Le même jour, le <strong>code QR du jardin a été installé</strong>, intégrant ainsi cet espace au projet CaminArte.</p>
+      <p>L'association de l'intervention artistique, de l'éducation à l'environnement et de l'accès numérique à l'information permet au jardin de continuer à jouer un rôle de sensibilisation au-delà des activités organisées sur place.</p>
+    </div></section>
+    <section class="section"><div class="section-label">Localisation</div><p class="location">Quartier de La Bombilla · Los Llanos de Aridane</p><iframe class="map" src="https://www.openstreetmap.org/export/embed.html?bbox=-17.9260%2C28.5889%2C-17.9134%2C28.5968&layer=mapnik&marker=28.592890081015398%2C-17.919696792896666" loading="lazy"></iframe><a class="maps-btn" href="https://www.google.com/maps?q=28.592890081015398,-17.919696792896666" target="_blank" rel="noopener noreferrer">⌖ Ouvrir dans Google Maps</a></section>
+    <section class="section tint"><div class="section-label">L'artiste</div><div class="artist-head"><div class="artist-photo"><img src="https://raw.githubusercontent.com/herrumbrevivo/bbaja/main/img/gustavo.jpg" alt="Gustavo Díaz"></div><div><div class="artist-name">Gustavo Díaz</div><div class="artist-role">Artiste du recyclage · Activiste environnemental · Gestionnaire de déchets</div></div></div><div class="description"><p>Originaire de Fuencaliente, Gustavo Díaz crée sous la marque Herrumbre Vivo des projets qui associent art, durabilité, identité culturelle et participation citoyenne. Il transforme des matériaux hors d'usage en sculptures et installations qui mettent en valeur les traditions et le patrimoine des îles Canaries.</p><p>Il est le créateur et l'initiateur de CaminArte, un projet innovant de géolocalisation culturelle et d'itinéraires artistiques durables qui réunit mémoire historique, paysage de La Palma et art en métal recyclé au service de l'environnement.</p></div></section>
+  </main>
+
+  <footer>
+    <a class="footer-brand" href="https://herrumbrevivoarte.com" target="_blank" rel="noopener noreferrer">Herrumbre Vivo</a>
+    <div class="footer-small">Jardín de La Bombilla · Los Llanos de Aridane · 2025</div>
+    <div class="footer-small">CaminArte · Arte con materiales recuperados</div>
+  </footer>
+</div>
+
+<script>
+  const buttons=document.querySelectorAll('.lang-btn');
+  const panels=document.querySelectorAll('.lang-panel');
+  buttons.forEach(button=>button.addEventListener('click',()=>{
+    const lang=button.dataset.lang;
+    buttons.forEach(b=>b.classList.remove('active'));
+    panels.forEach(p=>p.classList.remove('active'));
+    button.classList.add('active');
+    document.getElementById('lang-'+lang).classList.add('active');
+    document.documentElement.lang=lang;
+  }));
+</script>
+</body>
+</html>
