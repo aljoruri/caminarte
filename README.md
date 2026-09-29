@@ -1,18 +1,18 @@
-# CaminArte
+# CaminArte · QR temporales
 
-Repositorio temporal y portfolio del proyecto **CaminArte / Herrumbre Vivo**.
+Repositorio temporal para alojar las fichas web enlazadas desde los códigos QR de CaminArte mientras se desarrolla la web definitiva del proyecto.
 
-CaminArte reúne fichas web accesibles mediante QR para obras de Gustavo Díaz realizadas con metal recuperado, vinculando arte, patrimonio, paisaje, memoria local y sostenibilidad.
+Cada ficha funciona de forma independiente. No hay portada general ni navegación entre obras.
 
 ## Estructura
 
-- `obra/`: fichas individuales de las obras.
-- Cada obra se publica como una página estática independiente.
-- La página principal funciona como acceso general y portfolio del proyecto.
+- `obra/el-cuervo/index.html`
+- `obra/pez-puntalarga/index.html`
+- futuras fichas en `obra/<slug>/index.html`
 
-## Fichas publicadas
+Las páginas son HTML estático y pueden actualizarse directamente sin proceso de compilación.
 
-- [El Cuervo](./obra/el-cuervo/)
-- [El Pez de Puntalarga](./obra/pez-puntalarga/)
+## Fichas activas
 
-Proyecto en desarrollo.
+- https://aljoruri.github.io/caminarte/obra/el-cuervo/
+- https://aljoruri.github.io/caminarte/obra/pez-puntalarga/
