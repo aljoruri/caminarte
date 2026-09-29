@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#2C1A0E">
+  <title>El Lagar · CaminArte · Herrumbre Vivo</title>
+  <meta name="description" content="El Lagar, obra de Herrumbre Vivo en Fuencaliente de La Palma. Tradición vitivinícola, patrimonio y memoria local.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+  <style>
+    :root{--marron:#2C1A0E;--marron-oscuro:#1C1008;--dorado:#C8A84B;--arena:#D4B96A;--crema:#FAF6F0;--gris:#7A6A5A;--granate:#8B1A1A;--texto:#25211d}
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{min-height:100vh;background:#eee9e2;color:var(--texto);font-family:'DM Sans',sans-serif}
+    .page{min-height:100vh;background:var(--crema);max-width:480px;margin:0 auto;box-shadow:0 0 24px rgba(0,0,0,.08)}
+    header{background:var(--marron);padding:10px 18px;display:flex;align-items:center;gap:8px;position:sticky;top:0;z-index:50;border-bottom:3px solid var(--dorado)}
+    .header-title{flex:1;font-family:'Playfair Display',serif;font-size:13px;color:var(--arena);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .header-brand{font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--dorado);font-weight:600;flex-shrink:0}
+    .hero{position:relative;height:60vh;min-height:360px;overflow:hidden;background:#18130f}
+    .hero img{width:100%;height:100%;object-fit:cover;display:block}
+    .hero-gradient{position:absolute;inset:auto 0 0;height:62%;background:linear-gradient(to top,rgba(20,10,5,.96),transparent);pointer-events:none}
+    .hero-copy{position:absolute;left:0;right:0;bottom:0;padding:26px 22px 22px}
+    .eyebrow{display:inline-block;padding:4px 9px;border:1px solid rgba(212,185,106,.35);background:rgba(44,26,14,.5);color:var(--arena);font-size:9px;letter-spacing:.13em;text-transform:uppercase;border-radius:4px;margin-bottom:9px;backdrop-filter:blur(4px)}
+    .hero h1{font-family:'Playfair Display',serif;font-size:2.45rem;color:#fff;line-height:1.04;margin-bottom:6px;font-weight:400}
+    .hero-subtitle{font-size:12px;color:var(--arena);font-weight:300}
+    .lang-bar{background:var(--marron);padding:12px 18px;display:flex;gap:7px;overflow-x:auto;border-top:1px solid rgba(212,185,106,.15);scrollbar-width:none;position:sticky;top:39px;z-index:40}
+    .lang-bar::-webkit-scrollbar{display:none}
+    .lang-btn{flex-shrink:0;padding:6px 15px;border-radius:20px;border:1px solid rgba(212,185,106,.25);background:transparent;color:var(--arena);font-family:'DM Sans',sans-serif;font-size:12px;cursor:pointer;transition:.15s ease}
+    .lang-btn.active{background:var(--dorado);border-color:var(--dorado);color:#1a1a1a}
+    .section{padding:25px 22px;border-bottom:1px solid rgba(120,100,80,.13)}
+    .section.tint{background:rgba(44,26,14,.035)}
+    .section-label{display:flex;align-items:center;gap:7px;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--gris);margin-bottom:12px}
+    .section-label::before{content:"";width:16px;height:1px;background:var(--dorado);display:block}
+    .description{font-size:14.5px;line-height:1.74;color:#2a2a2a;font-weight:300}
+    .description p+p{margin-top:13px}
+    .gallery-image{width:100%;display:block;border-radius:10px;border:1px solid rgba(120,100,80,.16);background:#fff;overflow:hidden}
+    .gallery-image img{width:100%;height:auto;display:block;object-fit:cover}
+    .gallery-caption{font-size:12px;color:var(--gris);margin-top:9px}
+    .location{font-size:13.5px;color:var(--gris);margin-bottom:13px}
+    .map{width:100%;height:200px;border:0;border-radius:8px;margin:13px 0;display:block}
+    .maps-btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:13px;background:var(--granate);color:#fff;border-radius:8px;text-decoration:none;font-size:14px;font-weight:500;transition:.15s ease}
+    .maps-btn:hover{background:#6B1212}
+    .poi-list{display:flex;flex-direction:column;gap:9px;margin-top:4px}
+    .poi-card{display:flex;align-items:center;padding:13px 15px;border:1px solid rgba(120,100,80,.2);border-radius:10px;gap:11px;text-decoration:none;color:inherit;background:#fff;transition:.15s ease}
+    .poi-card:hover{border-color:var(--dorado);background:rgba(200,168,75,.06)}
+    .poi-info{flex:1}.poi-name{font-size:13.5px;font-weight:500;margin-bottom:2px}.poi-cat{font-size:11.5px;color:var(--gris)}.poi-dist{font-size:12px;color:var(--gris);white-space:nowrap}
+    .artist-head{display:flex;align-items:center;gap:14px;margin-bottom:16px}
+    .artist-photo{width:72px;height:72px;border-radius:50%;overflow:hidden;flex-shrink:0;background:var(--marron);border:2px solid rgba(200,168,75,.4)}
+    .artist-photo img{width:100%;height:100%;object-fit:cover;display:block}
+    .artist-name{font-family:'Playfair Display',serif;font-size:16px;margin-bottom:3px}
+    .artist-role{font-size:11px;color:var(--gris);line-height:1.5}
+    footer{background:var(--marron-oscuro);padding:25px 22px;display:flex;flex-direction:column;align-items:center;gap:9px;border-top:3px solid var(--dorado);text-align:center}
+    .footer-brand{font-family:'Playfair Display',serif;font-size:20px;color:var(--arena);text-decoration:none}
+    .footer-small{color:rgba(212,185,106,.58);font-size:10px;line-height:1.5}
+    .lang-panel{display:none}.lang-panel.active{display:block}
+    @media(min-width:600px){.page{max-width:900px}.hero{height:55vh;min-height:440px}.hero h1{font-size:3.2rem}header{padding:12px 28px}.section{padding:30px 32px}.lang-bar{padding:14px 28px;top:43px}.map{height:280px}.poi-list{display:grid;grid-template-columns:1fr 1fr;gap:10px}}
+    @media(min-width:1024px){.page{max-width:1100px}.poi-list{grid-template-columns:repeat(3,1fr)}}
+  </style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <div class="header-title">El Lagar · Fuencaliente</div>
+    <div class="header-brand">Herrumbre Vivo</div>
+  </header>
+
+  <div class="hero">
+    <img src="https://res.cloudinary.com/dzcvq5lkp/image/upload/v1778587102/IMG-20260425-WA0015_b2yosw.jpg" alt="El Lagar, obra de Herrumbre Vivo">
+    <div class="hero-gradient"></div>
+    <div class="hero-copy">
+      <div class="eyebrow">CaminArte · Herrumbre Vivo</div>
+      <h1>El Lagar</h1>
+      <p class="hero-subtitle">Gustavo Díaz · Fuencaliente · 2025</p>
+    </div>
+  </div>
+
+  <div class="lang-bar">
+    <button class="lang-btn active" data-lang="es">Español</button>
+    <button class="lang-btn" data-lang="en">English</button>
+    <button class="lang-btn" data-lang="de">Deutsch</button>
+    <button class="lang-btn" data-lang="fr">Français</button>
+  </div>
+
+  <main class="lang-panel active" id="lang-es">
+    <section class="section">
+      <div class="section-label">Sobre la obra</div>
+      <div class="description">
+        <p>El lagar es la pieza más representativa a la hora de hacer vino. La pisa de la uva en él para obtener vino es una tradición que ha pasado de generación en generación, ya que el acto de pisar la uva se asemeja a una danza de folclore, en la que las personas danzan sobre la uva apoyadas en la viga superior.</p>
+        <p>En cuanto a su construcción, los lagares suelen estar hechos de madera de tea, lo cual les aporta peso y robustez. Están compuestos de varias partes: una en la que se pisa la uva, un lagareto en el que se recoge el mosto, y el resto de vigas que sirven como mecanismos.</p>
+        <p>Su origen, al igual que el de las vides, se remonta al archipiélago portugués de Madeira. Y a pesar de que la tradición de prensar cultivos como la aceituna estaba extendida en la geografía peninsular, en Canarias seguía siendo popular pisar la uva, con numerosas referencias históricas y literarias sobre el reconocimiento mundial que ha tenido.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-label">Imagen de la obra</div>
+      <div class="gallery-image"><img src="https://res.cloudinary.com/dzcvq5lkp/image/upload/v1778587102/IMG-20260425-WA0015_b2yosw.jpg" alt="El Lagar"></div>
+      <p class="gallery-caption">El Lagar, obra de Herrumbre Vivo.</p>
+    </section>
+
+    <section class="section">
+      <div class="section-label">Ubicación</div>
+      <p class="location">Fuencaliente de La Palma</p>
+      <iframe class="map" src="https://www.openstreetmap.org/export/embed.html?bbox=-17.8508%2C28.4908%2C-17.8382%2C28.4987&layer=mapnik&marker=28.4946788%2C-17.8444804" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <a class="maps-btn" href="https://www.google.com/maps?q=28.4946788,-17.8444804" target="_blank" rel="noopener noreferrer">⌖ Abrir en Google Maps</a>
+    </section>
+
+    <section class="section">
+      <div class="section-label">Puntos de interés cercanos</div>
+      <div class="poi-list">
+        <a class="poi-card" href="https://www.google.com/maps/search/Ayuntamiento+de+Fuencaliente+de+La+Palma" target="_blank" rel="noopener noreferrer"><div class="poi-info"><div class="poi-name">Ayuntamiento de Fuencaliente</div><div class="poi-cat">Institución municipal</div></div><span class="poi-dist">50 m</span></a>
+        <a class="poi-card" href="https://www.google.com/maps/search/Antiguo+Ayuntamiento+Fuencaliente+La+Palma" target="_blank" rel="noopener noreferrer"><div class="poi-info"><div class="poi-name">Antiguo Ayuntamiento</div><div class="poi-cat">Patrimonio histórico · Museo</div></div><span class="poi-dist">100 m</span></a>
+        <a class="poi-card" href="https://turismofuencalientedelapalma.com/enoturismo/" target="_blank" rel="noopener noreferrer"><div class="poi-info"><div class="poi-name">Ruta del Enoturismo</div><div class="poi-cat">Enoturismo</div></div><span class="poi-dist">Zona</span></a>
+        <a class="poi-card" href="https://turismofuencalientedelapalma.com/fuencaliente/centro-volcan-san-antonio/" target="_blank" rel="noopener noreferrer"><div class="poi-info"><div class="poi-name">Volcán de San Antonio</div><div class="poi-cat">Centro de visitantes</div></div><span class="poi-dist">1,5 km</span></a>
+      </div>
+    </section>
+
+    <section class="section tint">
+      <div class="section-label">El artista</div>
+      <div class="artist-head">
+        <div class="artist-photo"><img src="https://raw.githubusercontent.com/herrumbrevivo/bbaja/main/img/gustavo.jpg" alt="Gustavo Díaz"></div>
+        <div><div class="artist-name">Gustavo Díaz</div><div class="artist-role">Artista del reciclado · Activista medioambiental · Gestor de residuos</div></div>
+      </div>
+      <div class="description">
+        <p>Natural de Fuencaliente, Gustavo Díaz crea bajo la marca Herrumbre Vivo proyectos que combinan arte, sostenibilidad, identidad cultural y participación ciudadana. Transforma materiales en desuso en esculturas e instalaciones que ponen en valor las tradiciones y el patrimonio de Canarias.</p>
+        <p>Es el creador e impulsor de CaminArte, un innovador proyecto de geolocalización cultural e itinerarios artísticos sostenibles que fusiona la memoria histórica, el paisaje palmero y el arte del metal reciclado en favor del medio ambiente.</p>
+      </div>
+    </section>
+  </main>
+
+  <main class="lang-panel" id="lang-en">
+    <section class="section"><div class="section-label">About the artwork</div><div class="description">
+      <p>Before the machine age reached these volcanic slopes, wine was made by foot. The lagar (a wooden press where people would dance on the grapes to extract the juice) sits at the heart of Fuencaliente's winemaking tradition, and its rhythm echoes in the harvest to this day.</p>
+      <p>Built from tea pine, a dense local wood that resists moisture and time, the lagar is a feat of vernacular engineering. The pressing platform, the lagareto where the must collects, the system of beams and levers: every part has a purpose refined over centuries.</p>
+      <p>The tradition came to the Canary Islands from Madeira, and it took root here with particular strength. Treading grapes is still practised in Fuencaliente, and the wines produced on these lapilli soils have earned recognition far beyond the island.</p>
+    </div></section>
+    <section class="section"><div class="section-label">Location</div><p class="location">Fuencaliente de La Palma</p><iframe class="map" src="https://www.openstreetmap.org/export/embed.html?bbox=-17.8508%2C28.4908%2C-17.8382%2C28.4987&layer=mapnik&marker=28.4946788%2C-17.8444804" loading="lazy"></iframe><a class="maps-btn" href="https://www.google.com/maps?q=28.4946788,-17.8444804" target="_blank" rel="noopener noreferrer">⌖ Open in Google Maps</a></section>
+    <section class="section tint"><div class="section-label">The artist</div><div class="artist-head"><div class="artist-photo"><img src="https://raw.githubusercontent.com/herrumbrevivo/bbaja/main/img/gustavo.jpg" alt="Gustavo Díaz"></div><div><div class="artist-name">Gustavo Díaz</div><div class="artist-role">Recycling artist · Environmental activist · Waste manager</div></div></div><div class="description"><p>Born in Fuencaliente, Gustavo Díaz creates projects under the Herrumbre Vivo brand that combine art, sustainability, cultural identity and citizen participation. He transforms discarded materials into sculptures and installations that highlight the traditions and heritage of the Canary Islands.</p><p>He is the creator and driving force behind CaminArte, an innovative cultural geolocation and sustainable artistic itinerary project that brings together historical memory, the landscape of La Palma and recycled-metal art in support of the environment.</p></div></section>
+  </main>
+
+  <main class="lang-panel" id="lang-de">
+    <section class="section"><div class="section-label">Über das Kunstwerk</div><div class="description">
+      <p>Bevor Maschinen die Ernte übernahmen, wurde auf diesen Vulkanhängen der Wein mit den Füßen gemacht. Der Lagar (ein hölzernes Pressgerät, auf dem die Winzer tanzend die Trauben austraten) steht im Mittelpunkt der Weinbautradition von Fuencaliente und hallt bis heute in der Erntezeit wider.</p>
+      <p>Aus schwerem Lorbeerkiefernholz gebaut, das Feuchtigkeit und Zeit trotzt, ist der Lagar ein Meisterwerk bäuerlicher Ingenieurskunst. Die Tretfläche, das Lagareto, das System aus Balken und Hebeln: jedes Teil wurde über Jahrhunderte verfeinert.</p>
+      <p>Die Tradition kam mit den Madeiranesern auf die Kanarischen Inseln und schlug hier besonders tiefe Wurzeln. Das Treten der Trauben wird in Fuencaliente noch heute praktiziert.</p>
+    </div></section>
+    <section class="section"><div class="section-label">Standort</div><p class="location">Fuencaliente de La Palma</p><iframe class="map" src="https://www.openstreetmap.org/export/embed.html?bbox=-17.8508%2C28.4908%2C-17.8382%2C28.4987&layer=mapnik&marker=28.4946788%2C-17.8444804" loading="lazy"></iframe><a class="maps-btn" href="https://www.google.com/maps?q=28.4946788,-17.8444804" target="_blank" rel="noopener noreferrer">⌖ In Google Maps öffnen</a></section>
+    <section class="section tint"><div class="section-label">Der Künstler</div><div class="artist-head"><div class="artist-photo"><img src="https://raw.githubusercontent.com/herrumbrevivo/bbaja/main/img/gustavo.jpg" alt="Gustavo Díaz"></div><div><div class="artist-name">Gustavo Díaz</div><div class="artist-role">Recycling-Künstler · Umweltaktivist · Abfallmanager</div></div></div><div class="description"><p>Gustavo Díaz stammt aus Fuencaliente. Unter der Marke Herrumbre Vivo schafft er Projekte, die Kunst, Nachhaltigkeit, kulturelle Identität und Bürgerbeteiligung verbinden. Er verwandelt ausrangierte Materialien in Skulpturen und Installationen, die die Traditionen und das Erbe der Kanarischen Inseln sichtbar machen.</p><p>Er ist Schöpfer und Initiator von CaminArte, einem innovativen Projekt für kulturelle Geolokalisierung und nachhaltige Kunstrouten, das historische Erinnerung, die Landschaft La Palmas und Kunst aus recyceltem Metall im Sinne des Umweltschutzes miteinander verbindet.</p></div></section>
+  </main>
+
+  <main class="lang-panel" id="lang-fr">
+    <section class="section"><div class="section-label">À propos de l'œuvre</div><div class="description">
+      <p>Avant que les machines n'arrivent sur ces pentes volcaniques, le vin se faisait aux pieds. Le lagar (un pressoir en bois sur lequel les vendangeurs dansaient pour extraire le jus des raisins) est au cœur de la tradition viticole de Fuencaliente, et son rythme résonne encore aujourd'hui dans les vendanges.</p>
+      <p>Construit en bois de pin des Canaries, une essence dense qui résiste à l'humidité et au temps, le lagar est un chef-d'œuvre de l'ingénierie paysanne. L'aire de foulage, le lagareto, le système de poutres et de leviers : chaque partie a été affinée au fil des siècles.</p>
+      <p>La tradition est arrivée aux Canaries depuis Madère, et elle s'est enracinée ici avec une vigueur particulière. Le foulage au pied est encore pratiqué à Fuencaliente.</p>
+    </div></section>
+    <section class="section"><div class="section-label">Localisation</div><p class="location">Fuencaliente de La Palma</p><iframe class="map" src="https://www.openstreetmap.org/export/embed.html?bbox=-17.8508%2C28.4908%2C-17.8382%2C28.4987&layer=mapnik&marker=28.4946788%2C-17.8444804" loading="lazy"></iframe><a class="maps-btn" href="https://www.google.com/maps?q=28.4946788,-17.8444804" target="_blank" rel="noopener noreferrer">⌖ Ouvrir dans Google Maps</a></section>
+    <section class="section tint"><div class="section-label">L'artiste</div><div class="artist-head"><div class="artist-photo"><img src="https://raw.githubusercontent.com/herrumbrevivo/bbaja/main/img/gustavo.jpg" alt="Gustavo Díaz"></div><div><div class="artist-name">Gustavo Díaz</div><div class="artist-role">Artiste du recyclage · Activiste environnemental · Gestionnaire de déchets</div></div></div><div class="description"><p>Originaire de Fuencaliente, Gustavo Díaz crée sous la marque Herrumbre Vivo des projets qui associent art, durabilité, identité culturelle et participation citoyenne. Il transforme des matériaux hors d'usage en sculptures et installations qui mettent en valeur les traditions et le patrimoine des îles Canaries.</p><p>Il est le créateur et l'initiateur de CaminArte, un projet innovant de géolocalisation culturelle et d'itinéraires artistiques durables qui réunit mémoire historique, paysage de La Palma et art en métal recyclé au service de l'environnement.</p></div></section>
+  </main>
+
+  <footer>
+    <a class="footer-brand" href="https://herrumbrevivoarte.com" target="_blank" rel="noopener noreferrer">Herrumbre Vivo</a>
+    <div class="footer-small">El Lagar · Fuencaliente de La Palma</div>
+    <div class="footer-small">CaminArte · Arte con materiales recuperados · 2025</div>
+  </footer>
+</div>
+<script>
+  const buttons=document.querySelectorAll('.lang-btn');
+  const panels=document.querySelectorAll('.lang-panel');
+  buttons.forEach(button=>button.addEventListener('click',()=>{
+    const lang=button.dataset.lang;
+    buttons.forEach(b=>b.classList.remove('active'));
+    panels.forEach(p=>p.classList.remove('active'));
+    button.classList.add('active');
+    document.getElementById('lang-'+lang).classList.add('active');
+    document.documentElement.lang=lang;
+  }));
+</script>
+</body>
+</html>
