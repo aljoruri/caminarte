@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#2C1A0E">
+  <title>El Pez de Puntalarga · CaminArte · Herrumbre Vivo</title>
+  <meta name="description" content="El Pez de Puntalarga, obra de Herrumbre Vivo en Fuencaliente de La Palma. Arte con materiales recuperados, tradición marinera y paisaje costero.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+  <style>
+    :root{--marron:#2C1A0E;--marron-oscuro:#1C1008;--dorado:#C8A84B;--arena:#D4B96A;--crema:#FAF6F0;--gris:#7A6A5A;--granate:#8B1A1A;--texto:#25211d}
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{min-height:100vh;background:#eee9e2;color:var(--texto);font-family:'DM Sans',sans-serif}
+    .page{min-height:100vh;background:var(--crema);max-width:480px;margin:0 auto;box-shadow:0 0 24px rgba(0,0,0,.08)}
+    header{background:var(--marron);padding:10px 18px;display:flex;align-items:center;gap:8px;position:sticky;top:0;z-index:50;border-bottom:3px solid var(--dorado)}
+    .header-title{flex:1;font-family:'Playfair Display',serif;font-size:13px;color:var(--arena);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .header-brand{font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--dorado);font-weight:600;flex-shrink:0}
+    .hero{position:relative;height:60vh;min-height:360px;overflow:hidden;background:#18130f}
+    .hero img{width:100%;height:100%;object-fit:cover;display:block}
+    .hero-gradient{position:absolute;inset:auto 0 0;height:62%;background:linear-gradient(to top,rgba(20,10,5,.96),transparent);pointer-events:none}
+    .hero-copy{position:absolute;left:0;right:0;bottom:0;padding:26px 22px 22px}
+    .eyebrow{display:inline-block;padding:4px 9px;border:1px solid rgba(212,185,106,.35);background:rgba(44,26,14,.5);color:var(--arena);font-size:9px;letter-spacing:.13em;text-transform:uppercase;border-radius:4px;margin-bottom:9px;backdrop-filter:blur(4px)}
+    .hero h1{font-family:'Playfair Display',serif;font-size:2.45rem;color:#fff;line-height:1.04;margin-bottom:6px;font-weight:400}
+    .hero-subtitle{font-size:12px;color:var(--arena);font-weight:300}
+    .lang-bar{background:var(--marron);padding:12px 18px;display:flex;gap:7px;overflow-x:auto;border-top:1px solid rgba(212,185,106,.15);scrollbar-width:none;position:sticky;top:39px;z-index:40}
+    .lang-bar::-webkit-scrollbar{display:none}
+    .lang-btn{flex-shrink:0;padding:6px 15px;border-radius:20px;border:1px solid rgba(212,185,106,.25);background:transparent;color:var(--arena);font-family:'DM Sans',sans-serif;font-size:12px;cursor:pointer;transition:.15s ease}
+    .lang-btn.active{background:var(--dorado);border-color:var(--dorado);color:#1a1a1a}
+    .section{padding:25px 22px;border-bottom:1px solid rgba(120,100,80,.13)}
+    .section.tint{background:rgba(44,26,14,.035)}
+    .section-label{display:flex;align-items:center;gap:7px;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--gris);margin-bottom:12px}
+    .section-label::before{content:"";width:16px;height:1px;background:var(--dorado);display:block}
+    .description{font-size:14.5px;line-height:1.74;color:#2a2a2a;font-weight:300}
+    .description p+p{margin-top:13px}
+    .gallery-image{width:100%;display:block;border-radius:10px;border:1px solid rgba(120,100,80,.16);background:#fff;overflow:hidden}
+    .gallery-image img{width:100%;height:auto;display:block;object-fit:cover}
+    .gallery-caption{font-size:12px;color:var(--gris);margin-top:9px}
+    .location{font-size:13.5px;color:var(--gris);margin-bottom:13px}
+    .map{width:100%;height:200px;border:0;border-radius:8px;margin:13px 0;display:block}
+    .maps-btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:13px;background:var(--granate);color:#fff;border-radius:8px;text-decoration:none;font-size:14px;font-weight:500;transition:.15s ease}
+    .maps-btn:hover{background:#6B1212}
+    .poi-list{display:flex;flex-direction:column;gap:9px;margin-top:4px}
+    .poi-card{display:flex;align-items:center;padding:13px 15px;border:1px solid rgba(120,100,80,.2);border-radius:10px;gap:11px;text-decoration:none;color:inherit;background:#fff;transition:.15s ease}
+    .poi-card:hover{border-color:var(--dorado);background:rgba(200,168,75,.06)}
+    .poi-info{flex:1}.poi-name{font-size:13.5px;font-weight:500;margin-bottom:2px}.poi-cat{font-size:11.5px;color:var(--gris)}.poi-dist{font-size:12px;color:var(--gris);white-space:nowrap}
+    .artist-head{display:flex;align-items:center;gap:14px;margin-bottom:16px}
+    .artist-photo{width:72px;height:72px;border-radius:50%;overflow:hidden;flex-shrink:0;background:var(--marron);border:2px solid rgba(200,168,75,.4)}
+    .artist-photo img{width:100%;height:100%;object-fit:cover;display:block}
+    .artist-name{font-family:'Playfair Display',serif;font-size:16px;margin-bottom:3px}
+    .artist-role{font-size:11px;color:var(--gris);line-height:1.5}
+    footer{background:var(--marron-oscuro);padding:25px 22px;display:flex;flex-direction:column;align-items:center;gap:9px;border-top:3px solid var(--dorado);text-align:center}
+    .footer-brand{font-family:'Playfair Display',serif;font-size:20px;color:var(--arena);text-decoration:none}
+    .footer-small{color:rgba(212,185,106,.58);font-size:10px;line-height:1.5}
+    .lang-panel{display:none}.lang-panel.active{display:block}
+    @media(min-width:600px){.page{max-width:900px}.hero{height:55vh;min-height:440px}.hero h1{font-size:3.2rem}header{padding:12px 28px}.section{padding:30px 32px}.lang-bar{padding:14px 28px;top:43px}.map{height:280px}.poi-list{display:grid;grid-template-columns:1fr 1fr;gap:10px}}
+    @media(min-width:1024px){.page{max-width:1100px}.poi-list{grid-template-columns:repeat(3,1fr)}}
+  </style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <div class="header-title">El Pez de Puntalarga · Fuencaliente</div>
+    <div class="header-brand">Herrumbre Vivo</div>
+  </header>
+
+  <div class="hero">
+    <img src="https://res.cloudinary.com/dzcvq5lkp/image/upload/v1778587103/IMG-20260425-WA0017_n3rp9i.jpg" alt="El Pez de Puntalarga, obra de Herrumbre Vivo">
+    <div class="hero-gradient"></div>
+    <div class="hero-copy">
+      <div class="eyebrow">CaminArte · Herrumbre Vivo</div>
+      <h1>El Pez de Puntalarga</h1>
+      <p class="hero-subtitle">Gustavo Díaz · Fuencaliente · 2025</p>
+    </div>
+  </div>
+
+  <div class="lang-bar">
+    <button class="lang-btn active" data-lang="es">Español</button>
+    <button class="lang-btn" data-lang="en">English</button>
+    <button class="lang-btn" data-lang="de">Deutsch</button>
+    <button class="lang-btn" data-lang="fr">Français</button>
+  </div>
+
+  <main class="lang-panel active" id="lang-es">
+    <section class="section">
+      <div class="section-label">Sobre la obra</div>
+      <div class="description">
+        <p>Con motivo de las fiestas en honor a la Virgen del Carmen, patrona de los marineros y figura profundamente arraigada en la identidad de nuestras costas, esta obra de Herrumbre Vivo se instala en Puntalarga como un tributo al vínculo histórico entre la comunidad y el mar.</p>
+        <p>Construida con materiales recuperados (redes, metales oxidados, objetos que el tiempo dejó atrás), la pieza transforma restos en memoria, y memoria en arte. Cada elemento habla de esfuerzo, de fe, y del pulso cotidiano de quienes han vivido mirando al horizonte.</p>
+        <p>Esta instalación no solo embellece el entorno, sino que también refuerza la identidad de un barrio que, año tras año, se reúne para celebrar lo que los une: la devoción, la tradición y la vida junto al mar.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-label">Imagen de la obra</div>
+      <div class="gallery-image"><img src="https://res.cloudinary.com/dzcvq5lkp/image/upload/v1778587103/IMG-20260425-WA0017_n3rp9i.jpg" alt="El Pez de Puntalarga"></div>
+      <p class="gallery-caption">El Pez de Puntalarga, obra de Herrumbre Vivo.</p>
+    </section>
+
+    <section class="section">
+      <div class="section-label">Ubicación</div>
+      <p class="location">Playa de Puntalarga · Fuencaliente de La Palma</p>
+      <iframe class="map" src="https://www.openstreetmap.org/export/embed.html?bbox=-17.8745%2C28.4790%2C-17.8619%2C28.4869&layer=mapnik&marker=28.4829767%2C-17.8682005" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <a class="maps-btn" href="https://www.google.com/maps?q=28.4829767,-17.8682005" target="_blank" rel="noopener noreferrer">⌖ Abrir en Google Maps</a>
+    </section>
+
+    <section class="section">
+      <div class="section-label">Puntos de interés cercanos</div>
+      <div class="poi-list">
+        <a class="poi-card" href="https://www.google.com/maps/search/Restaurante+La+Guildera+Fuencaliente" target="_blank" rel="noopener noreferrer"><div class="poi-info"><div class="poi-name">Restaurante La Guildera</div><div class="poi-cat">Restauración</div></div><span class="poi-dist">50 m</span></a>
+        <a class="poi-card" href="https://www.google.com/maps/search/Playa+Puntalarga+Fuencaliente" target="_blank" rel="noopener noreferrer"><div class="poi-info"><div class="poi-name">Playa de Puntalarga</div><div class="poi-cat">Playa volcánica</div></div><span class="poi-dist">80 m</span></a>
+        <a class="poi-card" href="https://www.google.com/maps/search/Salinas+de+Fuencaliente" target="_blank" rel="noopener noreferrer"><div class="poi-info"><div class="poi-name">Salinas de Fuencaliente</div><div class="poi-cat">Espacio natural protegido</div></div><span class="poi-dist">1,2 km</span></a>
+        <a class="poi-card" href="https://turismofuencalientedelapalma.com/fuencaliente/faro-de-fuencaliente/" target="_blank" rel="noopener noreferrer"><div class="poi-info"><div class="poi-name">Faro de Fuencaliente</div><div class="poi-cat">Patrimonio · Costa</div></div><span class="poi-dist">1,8 km</span></a>
+        <a class="poi-card" href="https://turismofuencalientedelapalma.com/fuencaliente/centro-volcan-san-antonio/" target="_blank" rel="noopener noreferrer"><div class="poi-info"><div class="poi-name">Volcán de San Antonio</div><div class="poi-cat">Centro de visitantes</div></div><span class="poi-dist">3,1 km</span></a>
+      </div>
+    </section>
+
+    <section class="section tint">
+      <div class="section-label">El artista</div>
+      <div class="artist-head">
+        <div class="artist-photo"><img src="https://raw.githubusercontent.com/herrumbrevivo/bbaja/main/img/gustavo.jpg" alt="Gustavo Díaz"></div>
+        <div><div class="artist-name">Gustavo Díaz</div><div class="artist-role">Artista del reciclado · Activista medioambiental · Gestor de residuos</div></div>
+      </div>
+      <div class="description">
+        <p>Natural de Fuencaliente, Gustavo Díaz crea bajo la marca Herrumbre Vivo proyectos que combinan arte, sostenibilidad, identidad cultural y participación ciudadana. Transforma materiales en desuso en esculturas e instalaciones que ponen en valor las tradiciones y el patrimonio de Canarias.</p>
+        <p>Es el creador e impulsor de CaminArte, un innovador proyecto de geolocalización cultural e itinerarios artísticos sostenibles que fusiona la memoria histórica, el paisaje palmero y el arte del metal reciclado en favor del medio ambiente.</p>
+      </div>
+    </section>
+  </main>
+
+  <main class="lang-panel" id="lang-en">
+    <section class="section"><div class="section-label">About the artwork</div><div class="description">
+      <p>Every July, the community of Puntalarga gathers to honor the Virgin of Carmen, patron saint of sailors and the heartbeat of this coastline. This Herrumbre Vivo sculpture is Gustavo Díaz's tribute to that bond between the village and the sea.</p>
+      <p>Made entirely from recovered waste (rusted nets, discarded metal, objects the ocean and the years left behind), the piece turns what was forgotten into something worth remembering. Every weld, every bolt, carries a story.</p>
+      <p>More than decoration, this is a landmark. A reason to stop, look out to sea, and feel the weight of a tradition that still matters here.</p>
+    </div></section>
+    <section class="section"><div class="section-label">Location</div><p class="location">Puntalarga Beach · Fuencaliente de La Palma</p><iframe class="map" src="https://www.openstreetmap.org/export/embed.html?bbox=-17.8745%2C28.4790%2C-17.8619%2C28.4869&layer=mapnik&marker=28.4829767%2C-17.8682005" loading="lazy"></iframe><a class="maps-btn" href="https://www.google.com/maps?q=28.4829767,-17.8682005" target="_blank" rel="noopener noreferrer">⌖ Open in Google Maps</a></section>
+    <section class="section tint"><div class="section-label">The artist</div><div class="artist-head"><div class="artist-photo"><img src="https://raw.githubusercontent.com/herrumbrevivo/bbaja/main/img/gustavo.jpg" alt="Gustavo Díaz"></div><div><div class="artist-name">Gustavo Díaz</div><div class="artist-role">Recycling artist · Environmental activist · Waste manager</div></div></div><div class="description"><p>Born in Fuencaliente, Gustavo Díaz creates projects under the Herrumbre Vivo brand that combine art, sustainability, cultural identity and citizen participation. He transforms discarded materials into sculptures and installations that highlight the traditions and heritage of the Canary Islands.</p><p>He is the creator and driving force behind CaminArte, an innovative cultural geolocation and sustainable artistic itinerary project that brings together historical memory, the landscape of La Palma and recycled-metal art in support of the environment.</p></div></section>
+  </main>
+
+  <main class="lang-panel" id="lang-de">
+    <section class="section"><div class="section-label">Über das Kunstwerk</div><div class="description">
+      <p>Jeden Juli versammelt sich Puntalarga zu Ehren der Virgen del Carmen, der Schutzpatronin der Fischer und Seeleute. Diese Skulptur von Herrumbre Vivo ist Gustavo Díaz' Hommage an die jahrhundertealte Verbindung zwischen dem Dorf und dem Atlantik.</p>
+      <p>Gefertigt aus angeschwemmtem Treibgut, verrostetem Metall und vergessenen Gegenständen, verwandelt das Werk Abfall in Erinnerung. Jede Schweißnaht erzählt eine Geschichte, die sonst niemand aufschreiben würde.</p>
+      <p>Wer hier steht, steht am südlichsten Zipfel La Palmas. Das Meer vor einem, die Vulkane im Rücken, und eine Skulptur, die daran erinnert, dass diese Küste schon immer von Menschen bewohnt wurde, die vom Meer lebten.</p>
+    </div></section>
+    <section class="section"><div class="section-label">Standort</div><p class="location">Playa de Puntalarga · Fuencaliente de La Palma</p><iframe class="map" src="https://www.openstreetmap.org/export/embed.html?bbox=-17.8745%2C28.4790%2C-17.8619%2C28.4869&layer=mapnik&marker=28.4829767%2C-17.8682005" loading="lazy"></iframe><a class="maps-btn" href="https://www.google.com/maps?q=28.4829767,-17.8682005" target="_blank" rel="noopener noreferrer">⌖ In Google Maps öffnen</a></section>
+    <section class="section tint"><div class="section-label">Der Künstler</div><div class="artist-head"><div class="artist-photo"><img src="https://raw.githubusercontent.com/herrumbrevivo/bbaja/main/img/gustavo.jpg" alt="Gustavo Díaz"></div><div><div class="artist-name">Gustavo Díaz</div><div class="artist-role">Recycling-Künstler · Umweltaktivist · Abfallmanager</div></div></div><div class="description"><p>Gustavo Díaz stammt aus Fuencaliente. Unter der Marke Herrumbre Vivo schafft er Projekte, die Kunst, Nachhaltigkeit, kulturelle Identität und Bürgerbeteiligung verbinden. Er verwandelt ausrangierte Materialien in Skulpturen und Installationen, die die Traditionen und das Erbe der Kanarischen Inseln sichtbar machen.</p><p>Er ist Schöpfer und Initiator von CaminArte, einem innovativen Projekt für kulturelle Geolokalisierung und nachhaltige Kunstrouten, das historische Erinnerung, die Landschaft La Palmas und Kunst aus recyceltem Metall im Sinne des Umweltschutzes miteinander verbindet.</p></div></section>
+  </main>
+
+  <main class="lang-panel" id="lang-fr">
+    <section class="section"><div class="section-label">À propos de l'œuvre</div><div class="description">
+      <p>Chaque juillet, Puntalarga se réunit pour fêter la Vierge du Carmen, patronne des marins et figure centrale de l'identité de ce littoral volcanique. Cette sculpture de Herrumbre Vivo est l'hommage de Gustavo Díaz à ce lien séculaire entre le village et l'Atlantique.</p>
+      <p>Fabriquée à partir de matériaux récupérés (filets rouillés, ferraille, objets oubliés que la mer ou le temps ont laissés derrière eux), l'œuvre transforme ce qui était perdu en quelque chose qui mérite d'être vu. Chaque soudure, chaque élément assemblé, porte une histoire.</p>
+      <p>Bien plus qu'un simple ornement, c'est un point d'ancrage. Une invitation à s'arrêter, à regarder l'horizon et à ressentir le poids d'une tradition qui reste bien vivante ici.</p>
+    </div></section>
+    <section class="section"><div class="section-label">Localisation</div><p class="location">Plage de Puntalarga · Fuencaliente de La Palma</p><iframe class="map" src="https://www.openstreetmap.org/export/embed.html?bbox=-17.8745%2C28.4790%2C-17.8619%2C28.4869&layer=mapnik&marker=28.4829767%2C-17.8682005" loading="lazy"></iframe><a class="maps-btn" href="https://www.google.com/maps?q=28.4829767,-17.8682005" target="_blank" rel="noopener noreferrer">⌖ Ouvrir dans Google Maps</a></section>
+    <section class="section tint"><div class="section-label">L'artiste</div><div class="artist-head"><div class="artist-photo"><img src="https://raw.githubusercontent.com/herrumbrevivo/bbaja/main/img/gustavo.jpg" alt="Gustavo Díaz"></div><div><div class="artist-name">Gustavo Díaz</div><div class="artist-role">Artiste du recyclage · Activiste environnemental · Gestionnaire de déchets</div></div></div><div class="description"><p>Originaire de Fuencaliente, Gustavo Díaz crée sous la marque Herrumbre Vivo des projets qui associent art, durabilité, identité culturelle et participation citoyenne. Il transforme des matériaux hors d'usage en sculptures et installations qui mettent en valeur les traditions et le patrimoine des îles Canaries.</p><p>Il est le créateur et l'initiateur de CaminArte, un projet innovant de géolocalisation culturelle et d'itinéraires artistiques durables qui réunit mémoire historique, paysage de La Palma et art en métal recyclé au service de l'environnement.</p></div></section>
+  </main>
+
+  <footer>
+    <a class="footer-brand" href="https://herrumbrevivoarte.com" target="_blank" rel="noopener noreferrer">Herrumbre Vivo</a>
+    <div class="footer-small">El Pez de Puntalarga · Fuencaliente de La Palma</div>
+    <div class="footer-small">CaminArte · Arte con materiales recuperados · 2025</div>
+  </footer>
+</div>
+<script>
+  const buttons=document.querySelectorAll('.lang-btn');
+  const panels=document.querySelectorAll('.lang-panel');
+  buttons.forEach(button=>button.addEventListener('click',()=>{
+    const lang=button.dataset.lang;
+    buttons.forEach(b=>b.classList.remove('active'));
+    panels.forEach(p=>p.classList.remove('active'));
+    button.classList.add('active');
+    document.getElementById('lang-'+lang).classList.add('active');
+    document.documentElement.lang=lang;
+  }));
+</script>
+</body>
+</html>
