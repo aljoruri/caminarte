@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#2C1A0E">
+  <title>Los Caracoles de Los Molinos · CaminArte · Herrumbre Vivo</title>
+  <meta name="description" content="Los Caracoles de Los Molinos, obra de Herrumbre Vivo en la zona de ocio y deportiva de Los Molinos, Puntallana. Arte con materiales recuperados e invitación a descubrir el patrimonio del municipio.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+  <style>
+    :root{--marron:#2C1A0E;--marron-oscuro:#1C1008;--dorado:#C8A84B;--arena:#D4B96A;--crema:#FAF6F0;--gris:#7A6A5A;--granate:#8B1A1A;--texto:#25211d}
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{min-height:100vh;background:#eee9e2;color:var(--texto);font-family:'DM Sans',sans-serif}
+    .page{min-height:100vh;background:var(--crema);max-width:480px;margin:0 auto;box-shadow:0 0 24px rgba(0,0,0,.08)}
+    header{background:var(--marron);padding:10px 18px;display:flex;align-items:center;gap:8px;position:sticky;top:0;z-index:50;border-bottom:3px solid var(--dorado)}
+    .header-title{flex:1;font-family:'Playfair Display',serif;font-size:13px;color:var(--arena);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .header-brand{font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--dorado);font-weight:600;flex-shrink:0}
+    .hero{position:relative;height:60vh;min-height:360px;overflow:hidden;background:#18130f}
+    .hero img{width:100%;height:100%;object-fit:cover;display:block}
+    .hero-gradient{position:absolute;inset:auto 0 0;height:62%;background:linear-gradient(to top,rgba(20,10,5,.96),transparent);pointer-events:none}
+    .hero-copy{position:absolute;left:0;right:0;bottom:0;padding:26px 22px 22px}
+    .eyebrow{display:inline-block;padding:4px 9px;border:1px solid rgba(212,185,106,.35);background:rgba(44,26,14,.5);color:var(--arena);font-size:9px;letter-spacing:.13em;text-transform:uppercase;border-radius:4px;margin-bottom:9px;backdrop-filter:blur(4px)}
+    .hero h1{font-family:'Playfair Display',serif;font-size:2.35rem;color:#fff;line-height:1.04;margin-bottom:6px;font-weight:400}
+    .hero-subtitle{font-size:12px;color:var(--arena);font-weight:300}
+    .lang-bar{background:var(--marron);padding:12px 18px;display:flex;gap:7px;overflow-x:auto;border-top:1px solid rgba(212,185,106,.15);scrollbar-width:none;position:sticky;top:39px;z-index:40}
+    .lang-bar::-webkit-scrollbar{display:none}
+    .lang-btn{flex-shrink:0;padding:6px 15px;border-radius:20px;border:1px solid rgba(212,185,106,.25);background:transparent;color:var(--arena);font-family:'DM Sans',sans-serif;font-size:12px;cursor:pointer}
+    .lang-btn.active{background:var(--dorado);border-color:var(--dorado);color:#1a1a1a}
+    .section{padding:25px 22px;border-bottom:1px solid rgba(120,100,80,.13)}
+    .section.tint{background:rgba(44,26,14,.035)}
+    .section-label{display:flex;align-items:center;gap:7px;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--gris);margin-bottom:12px}
+    .section-label::before{content:"";width:16px;height:1px;background:var(--dorado);display:block}
+    .description{font-size:14.5px;line-height:1.74;color:#2a2a2a;font-weight:300}
+    .description p+p{margin-top:13px}
+    .ficha{margin-top:18px;border:1px solid rgba(120,100,80,.18);border-radius:8px;overflow:hidden;background:#fff}
+    .ficha-row{display:flex;border-bottom:1px solid rgba(120,100,80,.12)}
+    .ficha-row:last-child{border-bottom:none}
+    .ficha-label{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--gris);font-weight:500;padding:10px 13px;background:rgba(200,168,75,.07);width:38%;flex-shrink:0}
+    .ficha-value{font-size:13px;color:#2a2a2a;padding:10px 13px;font-weight:300;line-height:1.4}
+    .location{font-size:13.5px;color:var(--gris);margin-bottom:13px}
+    .map{width:100%;height:200px;border:0;border-radius:8px;margin:13px 0;display:block}
+    .maps-btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:13px;background:var(--granate);color:#fff;border-radius:8px;text-decoration:none;font-size:14px;font-weight:500}
+    .poi-list{display:flex;flex-direction:column;gap:9px;margin-top:4px}
+    .poi-card{display:flex;align-items:center;padding:13px 15px;border:1px solid rgba(120,100,80,.2);border-radius:10px;gap:11px;text-decoration:none;color:inherit;background:#fff}
+    .poi-info{flex:1}.poi-name{font-size:13.5px;font-weight:500;margin-bottom:2px}.poi-cat{font-size:11.5px;color:var(--gris)}
+    .artist-head{display:flex;align-items:center;gap:14px;margin-bottom:16px}
+    .artist-photo{width:72px;height:72px;border-radius:50%;overflow:hidden;flex-shrink:0;background:var(--marron);border:2px solid rgba(200,168,75,.4)}
+    .artist-photo img{width:100%;height:100%;object-fit:cover;display:block}
+    .artist-name{font-family:'Playfair Display',serif;font-size:16px;margin-bottom:3px}
+    .artist-role{font-size:11px;color:var(--gris);line-height:1.5}
+    footer{background:var(--marron-oscuro);padding:25px 22px;display:flex;flex-direction:column;align-items:center;gap:9px;border-top:3px solid var(--dorado);text-align:center}
+    .footer-brand{font-family:'Playfair Display',serif;font-size:20px;color:var(--arena);text-decoration:none}
+    .footer-small{color:rgba(212,185,106,.58);font-size:10px;line-height:1.5}
+    .lang-panel{display:none}.lang-panel.active{display:block}
+    @media(min-width:600px){.page{max-width:900px}.hero{height:55vh;min-height:440px}.hero h1{font-size:3.1rem}header{padding:12px 28px}.section{padding:30px 32px}.lang-bar{padding:14px 28px;top:43px}.map{height:280px}.poi-list{display:grid;grid-template-columns:1fr 1fr;gap:10px}}
+  </style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <div class="header-title">Los Caracoles de Los Molinos · Puntallana</div>
+    <div class="header-brand">Herrumbre Vivo</div>
+  </header>
+
+  <div class="hero">
+    <img src="https://res.cloudinary.com/dzcvq5lkp/image/upload/v1778587718/PXL_20260303_133008603-2_qwrkvi.jpg" alt="Los Caracoles de Los Molinos · Herrumbre Vivo">
+    <div class="hero-gradient"></div>
+    <div class="hero-copy">
+      <div class="eyebrow">CaminArte · Herrumbre Vivo · Puntallana</div>
+      <h1>Los Caracoles de Los Molinos</h1>
+      <p class="hero-subtitle">Gustavo Díaz · Herrumbre Vivo · 2026</p>
+    </div>
+  </div>
+
+  <div class="lang-bar">
+    <button class="lang-btn active" data-lang="es">Español</button>
+    <button class="lang-btn" data-lang="en">English</button>
+    <button class="lang-btn" data-lang="de">Deutsch</button>
+    <button class="lang-btn" data-lang="fr">Français</button>
+  </div>
+
+  <main class="lang-panel active" id="lang-es">
+    <section class="section">
+      <div class="section-label">Sobre la obra</div>
+      <div class="description">
+        <p>Dos caracoles de metal reciclado se integran en la zona de ocio y deportiva de Los Molinos, en Puntallana. Sus conchas son tapacubos blancos de automóvil, desgastados y oxidados; sus cuerpos, chapas y varillas forjadas a mano; y sus ojos, pequeñas tapas cromadas que brillan contra el hierro envejecido.</p>
+        <p>La elección del caracol mantiene un vínculo con el agua, la humedad, la piedra y la vegetación, elementos muy presentes en la memoria y el paisaje de Puntallana. Desde este nuevo emplazamiento, la obra funciona también como una invitación a continuar caminando por el municipio y descubrir otros lugares ligados a su historia cotidiana y a su patrimonio.</p>
+        <p>Uno de esos espacios es La Fuentiña, antiguo lugar vinculado al lavado de la ropa y a la vida comunitaria. Los primeros lavaderos eran simples lajas de piedra en los cauces de los barrancos; con el tiempo se acercaron a los núcleos habitados y, a mediados del siglo XIX, los lavaderos públicos pasaron a convertirse en espacios de trabajo y encuentro. La Fuentiña conserva la memoria de esa tradición.</p>
+        <p>La visita puede continuar por el entorno de Casa Luján, la Fuente de San Juan, la iglesia y otros puntos del casco de Puntallana. Así, los caracoles no señalan únicamente un lugar: proponen detenerse, observar y recorrer el municipio para relacionar arte contemporáneo, paisaje y patrimonio.</p>
+        <p>Desde Herrumbre Vivo creemos que los materiales tienen muchas historias que contar. La oxidación no se oculta: es el tiempo, el uso y el ciclo de vida de las piezas que ahora adquieren una nueva función mediante el arte.</p>
+      </div>
+
+      <div class="ficha">
+        <div class="ficha-row"><div class="ficha-label">Técnica</div><div class="ficha-value">Ensamblaje y soldadura de metal reciclado</div></div>
+        <div class="ficha-row"><div class="ficha-label">Materiales</div><div class="ficha-value">Tapacubos, chapas y varillas de automóvil</div></div>
+        <div class="ficha-row"><div class="ficha-label">Piezas</div><div class="ficha-value">2 esculturas</div></div>
+        <div class="ficha-row"><div class="ficha-label">Año</div><div class="ficha-value">2026</div></div>
+        <div class="ficha-row"><div class="ficha-label">Promotor</div><div class="ficha-value">Ayuntamiento de Puntallana</div></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-label">Ubicación</div>
+      <p class="location">Zona de ocio y deportiva de Los Molinos · Puntallana · La Palma</p>
+      <iframe class="map" src="https://maps.google.com/maps?q=C.%20los%20Molinos%2C%2011%2C%2038715%20Puntallana%2C%20Santa%20Cruz%20de%20Tenerife%2C%20Espa%C3%B1a&z=17&output=embed" loading="lazy"></iframe>
+      <a class="maps-btn" href="https://www.google.com/maps/search/?api=1&query=Zona%20de%20ocio%20y%20deportiva%20de%20Los%20Molinos%20Puntallana%20La%20Palma" target="_blank" rel="noopener noreferrer">⌖ Abrir en Google Maps</a>
+    </section>
+
+    <section class="section tint">
+      <div class="section-label">Continúa descubriendo Puntallana</div>
+      <div class="description">
+        <p>Los Caracoles de Los Molinos pueden ser el punto de partida para seguir recorriendo a pie otros lugares del municipio y descubrir cómo el patrimonio, los espacios cotidianos y el paisaje forman parte de una misma historia.</p>
+      </div>
+      <div class="poi-list" style="margin-top:16px">
+        <a class="poi-card" href="https://www.google.com/maps/search/Casa+Lujan+Puntallana" target="_blank" rel="noopener noreferrer"><div class="poi-info"><div class="poi-name">Casa Luján</div><div class="poi-cat">Patrimonio etnográfico · Artesanía local</div></div></a>
+        <a class="poi-card" href="https://www.google.com/maps/search/La+Fuenti%C3%B1a+Puntallana" target="_blank" rel="noopener noreferrer"><div class="poi-info"><div class="poi-name">La Fuentiña</div><div class="poi-cat">Memoria del agua y de los antiguos lavaderos</div></div></a>
+        <a class="poi-card" href="https://www.google.com/maps/search/Fuente+San+Juan+Puntallana" target="_blank" rel="noopener noreferrer"><div class="poi-info"><div class="poi-name">Fuente de San Juan</div><div class="poi-cat">Manantial histórico</div></div></a>
+        <a class="poi-card" href="https://www.google.com/maps/search/Iglesia+San+Juan+Puntallana" target="_blank" rel="noopener noreferrer"><div class="poi-info"><div class="poi-name">Iglesia de San Juan</div><div class="poi-cat">Patrimonio histórico</div></div></a>
+        <a class="poi-card" href="https://www.google.com/maps/search/Mercadillo+Agricultor+Puntallana" target="_blank" rel="noopener noreferrer"><div class="poi-info"><div class="poi-name">Mercadillo del Agricultor</div><div class="poi-cat">Productos locales · Cabras de Herrumbre Vivo</div></div></a>
+      </div>
+    </section>
+
+    <section class="section tint">
+      <div class="section-label">El artista</div>
+      <div class="artist-head">
+        <div class="artist-photo"><img src="https://raw.githubusercontent.com/herrumbrevivo/bbaja/main/img/gustavo.jpg" alt="Gustavo Díaz"></div>
+        <div><div class="artist-name">Gustavo Díaz</div><div class="artist-role">Artista del reciclado · Activista medioambiental · Gestor de residuos</div></div>
+      </div>
+      <div class="description">
+        <p>Natural de Fuencaliente, Gustavo Díaz crea bajo la marca Herrumbre Vivo proyectos que combinan arte, sostenibilidad, identidad cultural y participación ciudadana. Transforma materiales en desuso en esculturas e instalaciones que ponen en valor las tradiciones y el patrimonio de Canarias.</p>
+        <p>Es el creador e impulsor de CaminArte, un innovador proyecto de geolocalización cultural e itinerarios artísticos sostenibles que fusiona la memoria histórica, el paisaje palmero y el arte del metal reciclado en favor del medio ambiente.</p>
+      </div>
+    </section>
+  </main>
+
+  <main class="lang-panel" id="lang-en">
+    <section class="section"><div class="section-label">About the artwork</div><div class="description">
+      <p>Two recycled-metal snails are installed in the Los Molinos leisure and sports area in Puntallana. Their shells are worn, oxidised white car hubcaps; their bodies are hand-forged sheets and rods; and their eyes are small chrome caps that gleam against the aged iron.</p>
+      <p>The choice of the snail maintains a connection with water, humidity, stone and vegetation, elements strongly present in Puntallana's landscape and memory. From this new location, the artwork also invites visitors to continue walking through the municipality and discover other places linked to its everyday history and heritage.</p>
+      <p>One of these places is La Fuentiña, traditionally associated with washing and community life. The earliest washing places were stone slabs in ravine beds; later, public washhouses moved closer to inhabited areas and became both workplaces and meeting points.</p>
+      <p>The visit can continue around Casa Luján, Fuente de San Juan, the church and other sites in Puntallana. The snails therefore do more than mark a location: they encourage visitors to pause, observe and explore the municipality through art, landscape and heritage.</p>
+      <p>At Herrumbre Vivo we believe materials have many stories to tell. Oxidation is not hidden: it is time, use and the life cycle of materials given a new purpose through art.</p>
+    </div></section>
+    <section class="section"><div class="section-label">Location</div><p class="location">Los Molinos leisure and sports area · Puntallana · La Palma</p><iframe class="map" src="https://maps.google.com/maps?q=C.%20los%20Molinos%2C%2011%2C%2038715%20Puntallana%2C%20Santa%20Cruz%20de%20Tenerife%2C%20Espa%C3%B1a&z=17&output=embed" loading="lazy"></iframe><a class="maps-btn" href="https://www.google.com/maps/search/?api=1&query=Zona%20de%20ocio%20y%20deportiva%20de%20Los%20Molinos%20Puntallana%20La%20Palma" target="_blank" rel="noopener noreferrer">⌖ Open in Google Maps</a></section>
+    <section class="section tint"><div class="section-label">Keep exploring Puntallana</div><div class="description"><p>From Los Molinos, the artwork invites visitors to continue on foot towards Casa Luján, La Fuentiña, Fuente de San Juan, the church and other places that help explain Puntallana's heritage and daily history.</p></div></section>
+    <section class="section tint"><div class="section-label">The artist</div><div class="artist-head"><div class="artist-photo"><img src="https://raw.githubusercontent.com/herrumbrevivo/bbaja/main/img/gustavo.jpg" alt="Gustavo Díaz"></div><div><div class="artist-name">Gustavo Díaz</div><div class="artist-role">Recycling artist · Environmental activist · Waste manager</div></div></div><div class="description"><p>Born in Fuencaliente, Gustavo Díaz creates projects under the Herrumbre Vivo brand that combine art, sustainability, cultural identity and citizen participation. He transforms discarded materials into sculptures and installations that highlight the traditions and heritage of the Canary Islands.</p><p>He is the creator and driving force behind CaminArte, an innovative cultural geolocation and sustainable artistic itinerary project that brings together historical memory, the landscape of La Palma and recycled-metal art in support of the environment.</p></div></section>
+  </main>
+
+  <main class="lang-panel" id="lang-de">
+    <section class="section"><div class="section-label">Über das Kunstwerk</div><div class="description">
+      <p>Zwei Schnecken aus Recyclingmetall befinden sich in der Freizeit- und Sportzone Los Molinos in Puntallana. Ihre Gehäuse bestehen aus verwitterten weißen Radkappen, ihre Körper aus handgeschmiedeten Blechen und Stäben.</p>
+      <p>Die Schnecke bleibt mit Wasser, Feuchtigkeit, Stein und Vegetation verbunden – Elemente, die in Landschaft und Erinnerung Puntallanas stark präsent sind. Von Los Molinos aus lädt das Werk dazu ein, die Gemeinde zu Fuß weiterzuentdecken.</p>
+      <p>Zu den Orten, die auf diesem Weg entdeckt werden können, gehören Casa Luján, La Fuentiña, Fuente de San Juan, die Kirche und weitere Punkte im Ortskern. La Fuentiña bewahrt dabei die Erinnerung an die alten Waschplätze und ihre Bedeutung als Arbeits- und Begegnungsorte.</p>
+      <p>Bei Herrumbre Vivo wird die Oxidation nicht verborgen: Sie erzählt von Zeit, Gebrauch und dem Lebenszyklus der Materialien.</p>
+    </div></section>
+    <section class="section"><div class="section-label">Standort</div><p class="location">Freizeit- und Sportzone Los Molinos · Puntallana · La Palma</p><iframe class="map" src="https://maps.google.com/maps?q=C.%20los%20Molinos%2C%2011%2C%2038715%20Puntallana%2C%20Santa%20Cruz%20de%20Tenerife%2C%20Espa%C3%B1a&z=17&output=embed" loading="lazy"></iframe><a class="maps-btn" href="https://www.google.com/maps/search/?api=1&query=Zona%20de%20ocio%20y%20deportiva%20de%20Los%20Molinos%20Puntallana%20La%20Palma" target="_blank" rel="noopener noreferrer">⌖ In Google Maps öffnen</a></section>
+    <section class="section tint"><div class="section-label">Puntallana weiterentdecken</div><div class="description"><p>Von Los Molinos aus lädt das Werk dazu ein, weiter durch Puntallana zu gehen und Orte wie Casa Luján, La Fuentiña und die Fuente de San Juan zu entdecken.</p></div></section>
+    <section class="section tint"><div class="section-label">Der Künstler</div><div class="artist-head"><div class="artist-photo"><img src="https://raw.githubusercontent.com/herrumbrevivo/bbaja/main/img/gustavo.jpg" alt="Gustavo Díaz"></div><div><div class="artist-name">Gustavo Díaz</div><div class="artist-role">Recycling-Künstler · Umweltaktivist · Abfallmanager</div></div></div><div class="description"><p>Gustavo Díaz stammt aus Fuencaliente. Unter der Marke Herrumbre Vivo schafft er Projekte, die Kunst, Nachhaltigkeit, kulturelle Identität und Bürgerbeteiligung verbinden. Er verwandelt ausrangierte Materialien in Skulpturen und Installationen, die die Traditionen und das Erbe der Kanarischen Inseln sichtbar machen.</p><p>Er ist Schöpfer und Initiator von CaminArte, einem innovativen Projekt für kulturelle Geolokalisierung und nachhaltige Kunstrouten, das historische Erinnerung, die Landschaft La Palmas und Kunst aus recyceltem Metall im Sinne des Umweltschutzes miteinander verbindet.</p></div></section>
+  </main>
+
+  <main class="lang-panel" id="lang-fr">
+    <section class="section"><div class="section-label">À propos de l'œuvre</div><div class="description">
+      <p>Deux escargots en métal recyclé sont installés dans la zone de loisirs et de sports de Los Molinos, à Puntallana. Leurs coquilles sont des enjoliveurs blancs usés et oxydés ; leurs corps sont faits de tôles et de tiges forgées à la main.</p>
+      <p>Le choix de l'escargot conserve un lien avec l'eau, l'humidité, la pierre et la végétation, des éléments très présents dans le paysage et la mémoire de Puntallana. Depuis Los Molinos, l'œuvre invite aussi à poursuivre la découverte de la commune à pied.</p>
+      <p>Parmi les lieux à découvrir figurent Casa Luján, La Fuentiña, la Fuente de San Juan, l'église et d'autres espaces du centre de Puntallana. La Fuentiña conserve notamment la mémoire des anciens lavoirs, à la fois lieux de travail et de rencontre.</p>
+      <p>Chez Herrumbre Vivo, l'oxydation n'est pas cachée : elle raconte le temps, l'usage et le cycle de vie des matériaux.</p>
+    </div></section>
+    <section class="section"><div class="section-label">Localisation</div><p class="location">Zone de loisirs et de sports de Los Molinos · Puntallana · La Palma</p><iframe class="map" src="https://maps.google.com/maps?q=C.%20los%20Molinos%2C%2011%2C%2038715%20Puntallana%2C%20Santa%20Cruz%20de%20Tenerife%2C%20Espa%C3%B1a&z=17&output=embed" loading="lazy"></iframe><a class="maps-btn" href="https://www.google.com/maps/search/?api=1&query=Zona%20de%20ocio%20y%20deportiva%20de%20Los%20Molinos%20Puntallana%20La%20Palma" target="_blank" rel="noopener noreferrer">⌖ Ouvrir dans Google Maps</a></section>
+    <section class="section tint"><div class="section-label">Continuez à découvrir Puntallana</div><div class="description"><p>Depuis Los Molinos, l'œuvre invite à poursuivre la promenade vers Casa Luján, La Fuentiña, la Fuente de San Juan et d'autres lieux du patrimoine local.</p></div></section>
+    <section class="section tint"><div class="section-label">L'artiste</div><div class="artist-head"><div class="artist-photo"><img src="https://raw.githubusercontent.com/herrumbrevivo/bbaja/main/img/gustavo.jpg" alt="Gustavo Díaz"></div><div><div class="artist-name">Gustavo Díaz</div><div class="artist-role">Artiste du recyclage · Activiste environnemental · Gestionnaire de déchets</div></div></div><div class="description"><p>Originaire de Fuencaliente, Gustavo Díaz crée sous la marque Herrumbre Vivo des projets qui associent art, durabilité, identité culturelle et participation citoyenne. Il transforme des matériaux hors d'usage en sculptures et installations qui mettent en valeur les traditions et le patrimoine des îles Canaries.</p><p>Il est le créateur et l'initiateur de CaminArte, un projet innovant de géolocalisation culturelle et d'itinéraires artistiques durables qui réunit mémoire historique, paysage de La Palma et art en métal recyclé au service de l'environnement.</p></div></section>
+  </main>
+
+  <footer>
+    <a class="footer-brand" href="https://herrumbrevivoarte.com" target="_blank" rel="noopener noreferrer">Herrumbre Vivo</a>
+    <div class="footer-small">Los Caracoles de Los Molinos · Puntallana · 2026</div>
+    <div class="footer-small">CaminArte · Arte con materiales recuperados</div>
+  </footer>
+</div>
+<script>
+  const buttons=document.querySelectorAll('.lang-btn');
+  const panels=document.querySelectorAll('.lang-panel');
+  buttons.forEach(button=>button.addEventListener('click',()=>{
+    const lang=button.dataset.lang;
+    buttons.forEach(b=>b.classList.remove('active'));
+    panels.forEach(p=>p.classList.remove('active'));
+    button.classList.add('active');
+    document.getElementById('lang-'+lang).classList.add('active');
+    document.documentElement.lang=lang;
+  }));
+</script>
+</body>
+</html>
