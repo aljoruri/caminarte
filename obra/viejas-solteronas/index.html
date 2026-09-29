@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#2C1A0E">
+  <title>Viejas Solteronas · CaminArte · Herrumbre Vivo</title>
+  <meta name="description" content="Viejas Solteronas, obra de Herrumbre Vivo en la Plaza de La Amistad, Los Quemados, Fuencaliente de La Palma. Arte, emigración, memoria e identidad cultural.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+  <style>
+    :root{--marron:#2C1A0E;--marron-oscuro:#1C1008;--dorado:#C8A84B;--arena:#D4B96A;--crema:#FAF6F0;--gris:#7A6A5A;--granate:#8B1A1A;--texto:#25211d}
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{min-height:100vh;background:#eee9e2;color:var(--texto);font-family:'DM Sans',sans-serif}
+    .page{min-height:100vh;background:var(--crema);max-width:480px;margin:0 auto;box-shadow:0 0 24px rgba(0,0,0,.08)}
+    header{background:var(--marron);padding:10px 18px;display:flex;align-items:center;gap:8px;position:sticky;top:0;z-index:50;border-bottom:3px solid var(--dorado)}
+    .header-title{flex:1;font-family:'Playfair Display',serif;font-size:13px;color:var(--arena);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .header-brand{font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--dorado);font-weight:600;flex-shrink:0}
+    .hero{position:relative;height:60vh;min-height:360px;overflow:hidden;background:#18130f}
+    .hero img{width:100%;height:100%;object-fit:cover;display:block}
+    .hero-gradient{position:absolute;inset:auto 0 0;height:62%;background:linear-gradient(to top,rgba(20,10,5,.96),transparent);pointer-events:none}
+    .hero-copy{position:absolute;left:0;right:0;bottom:0;padding:26px 22px 22px}
+    .eyebrow{display:inline-block;padding:4px 9px;border:1px solid rgba(212,185,106,.35);background:rgba(44,26,14,.5);color:var(--arena);font-size:9px;letter-spacing:.13em;text-transform:uppercase;border-radius:4px;margin-bottom:9px;backdrop-filter:blur(4px)}
+    .hero h1{font-family:'Playfair Display',serif;font-size:2.3rem;color:#fff;line-height:1.04;margin-bottom:6px;font-weight:400}
+    .hero-subtitle{font-size:12px;color:var(--arena);font-weight:300}
+    .lang-bar{background:var(--marron);padding:12px 18px;display:flex;gap:7px;overflow-x:auto;border-top:1px solid rgba(212,185,106,.15);scrollbar-width:none;position:sticky;top:39px;z-index:40}
+    .lang-bar::-webkit-scrollbar{display:none}
+    .lang-btn{flex-shrink:0;padding:6px 15px;border-radius:20px;border:1px solid rgba(212,185,106,.25);background:transparent;color:var(--arena);font-family:'DM Sans',sans-serif;font-size:12px;cursor:pointer;transition:.15s ease}
+    .lang-btn.active{background:var(--dorado);border-color:var(--dorado);color:#1a1a1a}
+    .section{padding:25px 22px;border-bottom:1px solid rgba(120,100,80,.13)}
+    .section.tint{background:rgba(44,26,14,.035)}
+    .section-label{display:flex;align-items:center;gap:7px;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--gris);margin-bottom:12px}
+    .section-label::before{content:"";width:16px;height:1px;background:var(--dorado);display:block}
+    .description{font-size:14.5px;line-height:1.74;color:#2a2a2a;font-weight:300}
+    .description p+p{margin-top:13px}
+    .location{font-size:13.5px;color:var(--gris);margin-bottom:13px}
+    .map{width:100%;height:200px;border:0;border-radius:8px;margin:13px 0;display:block}
+    .maps-btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:13px;background:var(--granate);color:#fff;border-radius:8px;text-decoration:none;font-size:14px;font-weight:500;transition:.15s ease}
+    .maps-btn:hover{background:#6B1212}
+    .poi-list{display:flex;flex-direction:column;gap:9px;margin-top:4px}
+    .poi-card{display:flex;align-items:center;padding:13px 15px;border:1px solid rgba(120,100,80,.2);border-radius:10px;gap:11px;text-decoration:none;color:inherit;background:#fff;transition:.15s ease}
+    .poi-card:hover{border-color:var(--dorado);background:rgba(200,168,75,.06)}
+    .poi-info{flex:1}.poi-name{font-size:13.5px;font-weight:500;margin-bottom:2px}.poi-cat{font-size:11.5px;color:var(--gris)}
+    .artist-head{display:flex;align-items:center;gap:14px;margin-bottom:16px}
+    .artist-photo{width:72px;height:72px;border-radius:50%;overflow:hidden;flex-shrink:0;background:var(--marron);border:2px solid rgba(200,168,75,.4)}
+    .artist-photo img{width:100%;height:100%;object-fit:cover;display:block}
+    .artist-name{font-family:'Playfair Display',serif;font-size:16px;margin-bottom:3px}
+    .artist-role{font-size:11px;color:var(--gris);line-height:1.5}
+    footer{background:var(--marron-oscuro);padding:25px 22px;display:flex;flex-direction:column;align-items:center;gap:9px;border-top:3px solid var(--dorado);text-align:center}
+    .footer-brand{font-family:'Playfair Display',serif;font-size:20px;color:var(--arena);text-decoration:none}
+    .footer-small{color:rgba(212,185,106,.58);font-size:10px;line-height:1.5}
+    .lang-panel{display:none}.lang-panel.active{display:block}
+    @media(min-width:600px){.page{max-width:900px}.hero{height:55vh;min-height:440px}.hero h1{font-size:3.2rem}header{padding:12px 28px}.section{padding:30px 32px}.lang-bar{padding:14px 28px;top:43px}.map{height:280px}.poi-list{display:grid;grid-template-columns:1fr 1fr;gap:10px}}
+    @media(min-width:1024px){.page{max-width:1100px}.poi-list{grid-template-columns:repeat(3,1fr)}}
+  </style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <div class="header-title">Viejas Solteronas · Los Quemados</div>
+    <div class="header-brand">Herrumbre Vivo</div>
+  </header>
+
+  <div class="hero">
+    <img src="https://raw.githubusercontent.com/herrumbrevivo/viejas/gh-pages/assets/viejas2-BKJN0LZn.png" alt="Viejas Solteronas, obra de Herrumbre Vivo">
+    <div class="hero-gradient"></div>
+    <div class="hero-copy">
+      <div class="eyebrow">CaminArte · Herrumbre Vivo</div>
+      <h1>Viejas Solteronas</h1>
+      <p class="hero-subtitle">Gustavo Díaz · Herrumbre Vivo · 2026</p>
+    </div>
+  </div>
+
+  <div class="lang-bar">
+    <button class="lang-btn active" data-lang="es">Español</button>
+    <button class="lang-btn" data-lang="en">English</button>
+    <button class="lang-btn" data-lang="de">Deutsch</button>
+    <button class="lang-btn" data-lang="fr">Français</button>
+  </div>
+
+  <main class="lang-panel active" id="lang-es">
+    <section class="section">
+      <div class="section-label">Sobre la obra</div>
+      <div class="description">
+        <p>Bienvenido/a a este rincón de Fuencaliente, donde la historia, la emigración y el orgullo de un pueblo se funden en el metal. Esta escultura de Herrumbre Vivo rinde homenaje a una de nuestras tradiciones más singulares: Las Viejas Solteronas, inaugurada en el marco del histórico regreso de las Fiestas de la Virgen del Cobre.</p>
+        <p>A finales del siglo XIX, en plena ola de emigración canaria hacia el Caribe, un vecino de Los Quemados trajo desde Cuba la imagen de la Virgen de la Caridad del Cobre. Custodiada desde entonces en el domicilio de Dña. Antonia Cabrera Hernández (Delfina), inspiró unas entrañables fiestas que llenaron el barrio de teatro, voladores y verbenas hasta la década de 1950. Tras muchos años de silencio, este año Fuencaliente recupera con ilusión estos festejos, devolviendo a las calles la escenificación de los tres pescadores, la danza de los Caballos Fuscos y el reencuentro en la Plaza de la Amistad.</p>
+        <p>Es precisamente en ese contexto de emigración masiva de hombres hacia Cuba y Venezuela donde nacen Las Viejas Solteronas. Las mujeres que se quedaban solas asumían con una fuerza descomunal las duras tareas del campo y del hogar. Para combatir la soledad y la incertidumbre, las mujeres de Los Quemados se unieron a través de la ironía: bailaban y cantaban con tono burlesco un estribillo donde se lamentaban, entre risas y picardía, de su suerte.</p>
+        <p>Hoy, tras ser recuperada por un grupo de jóvenes en 1966, la Agrupación Cultural Las Viejas Solteronas de Los Quemados sigue actuando en las Fiestas de la Vendimia y en los grandes actos de La Palma, con unas diez mujeres irreconocibles bajo su vestimenta de época.</p>
+        <p>Esta obra forma parte de Caminarte, un innovador proyecto de geolocalización cultural e itinerarios artísticos sostenibles impulsado por el artista y activista palmero Gustavo Díaz bajo su marca creativa Herrumbre Vivo. A través del reciclaje de materiales y la forja del metal, Caminarte busca transformar la manera de experimentar nuestro territorio, conectando de forma respetuosa el arte, el paisaje y la memoria de Fuencaliente.</p>
+        <p>Esta intervención de arte sostenible rinde un reconocimiento eterno a esa memoria viva: a las mujeres que sostuvieron Fuencaliente cuando otros se fueron, y a quienes llevan décadas manteniendo encendida la llama de nuestra identidad. ¡Disfruta de las fiestas y gracias por formar parte de nuestra historia!</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-label">Ubicación</div>
+      <p class="location">Plaza de La Amistad, Los Quemados · Fuencaliente de La Palma</p>
+      <iframe class="map" src="https://www.openstreetmap.org/export/embed.html?bbox=-17.8633%2C28.4892%2C-17.8507%2C28.4971&layer=mapnik&marker=28.493116%2C-17.8570308" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <a class="maps-btn" href="https://www.google.com/maps?q=28.493116,-17.8570308" target="_blank" rel="noopener noreferrer">⌖ Abrir en Google Maps</a>
+    </section>
+
+    <section class="section">
+      <div class="section-label">Puntos de interés cercanos</div>
+      <div class="poi-list">
+        <a class="poi-card" href="https://turismofuencalientedelapalma.com" target="_blank" rel="noopener noreferrer"><div class="poi-info"><div class="poi-name">Oficina de Turismo de Fuencaliente</div><div class="poi-cat">Información turística</div></div></a>
+        <a class="poi-card" href="https://turismofuencalientedelapalma.com/fuencaliente/centro-volcan-san-antonio/" target="_blank" rel="noopener noreferrer"><div class="poi-info"><div class="poi-name">Volcán de San Antonio</div><div class="poi-cat">Centro de visitantes</div></div></a>
+        <a class="poi-card" href="https://turismofuencalientedelapalma.com/fuencaliente/faro-de-fuencaliente/" target="_blank" rel="noopener noreferrer"><div class="poi-info"><div class="poi-name">Faro de Fuencaliente</div><div class="poi-cat">Patrimonio · Mirador</div></div></a>
+      </div>
+    </section>
+
+    <section class="section tint">
+      <div class="section-label">El artista</div>
+      <div class="artist-head">
+        <div class="artist-photo"><img src="https://raw.githubusercontent.com/herrumbrevivo/viejas/gh-pages/assets/gus-C-H-hHmh.jpg" alt="Gustavo Díaz"></div>
+        <div><div class="artist-name">Gustavo Díaz</div><div class="artist-role">Artista del reciclado · Activista medioambiental · Gestor de residuos</div></div>
+      </div>
+      <div class="description">
+        <p>Natural de Fuencaliente, Gustavo Díaz crea bajo la marca Herrumbre Vivo proyectos que combinan arte, sostenibilidad, identidad cultural y participación ciudadana. Transforma materiales en desuso en esculturas e instalaciones que ponen en valor las tradiciones y el patrimonio de Canarias.</p>
+        <p>Es el creador e impulsor de CaminArte, un innovador proyecto de geolocalización cultural e itinerarios artísticos sostenibles que fusiona la memoria histórica, el paisaje palmero y el arte del metal reciclado en favor del medio ambiente.</p>
+      </div>
+    </section>
+  </main>
+
+  <main class="lang-panel" id="lang-en">
+    <section class="section"><div class="section-label">About the artwork</div><div class="description">
+      <p>Welcome to this corner of Fuencaliente, where history, emigration, and the pride of a people merge into metal. This sculpture by Herrumbre Vivo pays tribute to one of our most unique traditions: Las Viejas Solteronas (The Old Spinsters), inaugurated as part of the historic return of the Fiestas de la Virgen del Cobre.</p>
+      <p>At the end of the 19th century, during a wave of massive Canarian emigration to the Caribbean, a resident of Los Quemados brought back an image of the Virgen de la Caridad del Cobre from Cuba. Maintained ever since at the home of Mrs. Antonia Cabrera Hernández (Delfina), it inspired beloved festivities that filled the neighborhood with theater, fireworks, and open-air dances until the late 1950s. After many years of silence, Fuencaliente enthusiastically recovers these celebrations this year, bringing back to the streets the emotional staging of the three fishermen, the dance of the Caballos Fuscos, and the community reunion at the Plaza de la Amistad.</p>
+      <p>It is precisely in this context of massive male emigration to Cuba and Venezuela where Las Viejas Solteronas were born. The women who stayed behind took on the harsh tasks of the fields and the household with immense strength. To cope with loneliness and uncertainty, the women of Los Quemados came together through irony: they danced and sang a burlesque chorus in which they lamented their fate with laughter and mischief.</p>
+      <p>Today, after being revived by a group of young people in 1966, the Agrupación Cultural Las Viejas Solteronas de Los Quemados continues to perform at the Fiestas de la Vendimia (Harvest Festival) and major events across La Palma, with around ten women unrecognizable beneath their period costumes.</p>
+      <p>This artwork is part of Caminarte, an innovative cultural geolocalization and sustainable art itinerary project driven by the Palmarian artist and activist Gustavo Díaz under his creative brand Herrumbre Vivo. Through material recycling and metal forging, Caminarte seeks to transform the way we experience our territory, respectfully connecting art, landscape, and the memory of Fuencaliente.</p>
+      <p>This sustainable art intervention pays an eternal tribute to that living memory: to the women who sustained Fuencaliente when others left, and to those who have kept the flame of our identity burning for decades. Enjoy the festivities and thank you for being part of our history!</p>
+    </div></section>
+    <section class="section"><div class="section-label">Location</div><p class="location">Plaza de La Amistad, Los Quemados · Fuencaliente de La Palma</p><iframe class="map" src="https://www.openstreetmap.org/export/embed.html?bbox=-17.8633%2C28.4892%2C-17.8507%2C28.4971&layer=mapnik&marker=28.493116%2C-17.8570308" loading="lazy"></iframe><a class="maps-btn" href="https://www.google.com/maps?q=28.493116,-17.8570308" target="_blank" rel="noopener noreferrer">⌖ Open in Google Maps</a></section>
+    <section class="section tint"><div class="section-label">The artist</div><div class="artist-head"><div class="artist-photo"><img src="https://raw.githubusercontent.com/herrumbrevivo/viejas/gh-pages/assets/gus-C-H-hHmh.jpg" alt="Gustavo Díaz"></div><div><div class="artist-name">Gustavo Díaz</div><div class="artist-role">Recycling artist · Environmental activist · Waste manager</div></div></div><div class="description"><p>A native of Fuencaliente, Gustavo Díaz creates projects under the Herrumbre Vivo brand that combine art, sustainability, cultural identity, and civic participation. He transforms discarded materials into sculptures and installations that highlight the traditions and heritage of the Canary Islands.</p><p>He is the creator and driving force behind CaminArte, an innovative cultural geolocalization and sustainable art itinerary project that merges historical memory, the Palmarian landscape, and recycled metal art in support of the environment.</p></div></section>
+  </main>
+
+  <main class="lang-panel" id="lang-de">
+    <section class="section"><div class="section-label">Über das Kunstwerk</div><div class="description">
+      <p>Willkommen in dieser Ecke von Fuencaliente, wo Geschichte, Auswanderung und der Stolz eines Volkes mit dem Metall verschmelzen. Diese Skulptur von Herrumbre Vivo ist eine Hommage an eine unserer einzigartigsten Traditionen: Las Viejas Solteronas (Die alten Jungfern), eingeweiht im Rahmen der historischen Rückkehr der Fiestas de la Virgen del Cobre.</p>
+      <p>Ende des 19. Jahrhunderts, mitten in einer Welle der Massenauswanderung von den Kanaren in die Karibik, brachte ein Einwohner von Los Quemados ein Bildnis der Virgen de la Caridad del Cobre aus Kuba mit. Seitdem im Haus von Frau Antonia Cabrera Hernández (Delfina) behütet, inspirierte es ein herzliches Fest, das das Viertel bis in die 1950er Jahre mit Theater, Feuerwerk und Tanzabenden erfüllte. Nach vielen Jahren des Schweigens lässt Fuencaliente diese Feierlichkeiten in diesem Jahr mit großer Freude wieder aufleben und bringt die bewegende Inszenierung der drei Fischer, den Tanz der Caballos Fuscos und das Wiedersehen auf der Plaza de la Amistad zurück auf die Straßen.</p>
+      <p>Genau in diesem Kontext der Massenauswanderung von Männern nach Kuba und Venezuela wurden Las Viejas Solteronas geboren. Die Frauen, die zurückblieben, übernahmen mit enormer Kraft die harten Aufgaben auf dem Feld und im Haushalt. Um Einsamkeit und Ungewissheit zu bekämpfen, schlossen sich die Frauen von Los Quemados durch Ironie zusammen: Sie tanzten und sangen einen spöttischen Kehrreim, in dem sie mit Lachen und Schalk ihr Schicksal beklagten.</p>
+      <p>Heute, nachdem die Tradition 1966 von einer Gruppe junger Menschen wiederbelebt wurde, tritt die Agrupación Cultural Las Viejas Solteronas de Los Quemados weiterhin bei den Fiestas de la Vendimia (Weinfest) und den großen Festen auf La Palma auf, wobei rund zehn Frauen unter ihren historischen Gewändern unerkennbar bleiben.</p>
+      <p>Dieses Werk ist Teil von Caminarte, einem innovativen Projekt für kulturelle Geolokalisierung und nachhaltige Kunstrouten, das von dem palmorischen Künstler und Aktivisten Gustavo Díaz unter seiner Kreativmarke Herrumbre Vivo vorangetrieben wird. Durch das Recycling von Materialien und die Schmiedekunst will Caminarte die Art und Weise, wie wir unser Territorium erleben, verändern und Kunst, Landschaft und das Gedächtnis von Fuencaliente auf respektvolle Weise miteinander verbinden.</p>
+      <p>Diese nachhaltige Kunstintervention ist eine ewige Hommage an dieses lebendige Gedächtnis: an die Frauen, die Fuencaliente stützten, als andere gingen, und an diejenigen, die seit Jahrzehnten die Flamme unserer Identität am Brennen halten. Genießen Sie die Feste und danke, dass Sie Teil unserer Geschichte sind!</p>
+    </div></section>
+    <section class="section"><div class="section-label">Standort</div><p class="location">Plaza de La Amistad, Los Quemados · Fuencaliente de La Palma</p><iframe class="map" src="https://www.openstreetmap.org/export/embed.html?bbox=-17.8633%2C28.4892%2C-17.8507%2C28.4971&layer=mapnik&marker=28.493116%2C-17.8570308" loading="lazy"></iframe><a class="maps-btn" href="https://www.google.com/maps?q=28.493116,-17.8570308" target="_blank" rel="noopener noreferrer">⌖ In Google Maps öffnen</a></section>
+    <section class="section tint"><div class="section-label">Der Künstler</div><div class="artist-head"><div class="artist-photo"><img src="https://raw.githubusercontent.com/herrumbrevivo/viejas/gh-pages/assets/gus-C-H-hHmh.jpg" alt="Gustavo Díaz"></div><div><div class="artist-name">Gustavo Díaz</div><div class="artist-role">Recycling-Künstler · Umweltaktivist · Abfallmanager</div></div></div><div class="description"><p>Der in Fuencaliente geborene Gustavo Díaz schafft unter der Marke Herrumbre Vivo Projekte, die Kunst, Nachhaltigkeit, kulturelle Identität und Bürgerbeteiligung vereinen. Er verwandelt ausrangierte Materialien in Skulpturen und Installationen, die die Traditionen und das Erbe der Kanarischen Inseln aufwerten.</p><p>Er ist der Schöpfer und Initiator von CaminArte, einem innovativen Projekt für kulturelle Geolokalisierung und nachhaltige Kunstrouten, das das historische Gedächtnis, die Landschaft von La Palma und die Kunst aus recyceltem Metall zum Schutz der Umwelt miteinander verschmilzt.</p></div></section>
+  </main>
+
+  <main class="lang-panel" id="lang-fr">
+    <section class="section"><div class="section-label">À propos de l'œuvre</div><div class="description">
+      <p>Bienvenue dans ce coin de Fuencaliente, où l'histoire, l'émigration et la fierté d'un peuple se fondent dans le métal. Cette sculpture d'Herrumbre Vivo rend hommage à l'une de nos traditions les plus singulières : Las Viejas Solteronas (Les vieilles filles), inaugurée dans le cadre du retour historique des Fiestas de la Virgen del Cobre.</p>
+      <p>À la fin du XIXe siècle, en pleine vague d'émigration massive des Canariens vers les Caraïbes, un habitant de Los Quemados a rapporté de Cuba l'image de la Virgen de la Caridad del Cobre. Conservée depuis lors au domicile de Mme Antonia Cabrera Hernández (Delfina), elle a inspiré des fêtes chaleureuses qui ont rempli le quartier de théâtre, de feux d'artifice et de bals populaires jusqu'aux années 1950. Après de nombreuses années de silence, Fuencaliente renoue cette année avec ferveur avec ces festivités, ramenant dans les rues la mise en scène émouvante des trois pêcheurs, la danse des Caballos Fuscos et les retrouvailles sur la Plaza de la Amistad.</p>
+      <p>C'est précisément dans ce contexte d'émigration massive des hommes vers Cuba et le Venezuela que sont nées Las Viejas Solteronas. Les femmes restées seules assumaient avec une force herculéenne les dures tâches de la terre et du foyer. Pour tromper la solitude et l'incertitude, les femmes de Los Quemados se sont unies à travers l'ironie : elles dansaient et chantaient sur un ton burlesque un refrain où elles déploraient leur sort, entre rires et malice.</p>
+      <p>Aujourd'hui, après avoir été relancée par un groupe de jeunes en 1966, l'Agrupación Cultural Las Viejas Solteronas de Los Quemados continue de se produire lors des Fiestas de la Vendimia (Fête des vendanges) et des grands événements de La Palma, avec une dizaine de femmes méconnaissables sous leurs costumes d'époque.</p>
+      <p>Cette œuvre fait partie de Caminarte, un projet innovant de géolocalisation culturelle et d'itinéraires artistiques durables porté par l'artiste et activiste de La Palma Gustavo Díaz sous sa marque créative Herrumbre Vivo. À travers le recyclage de matériaux et la forge du métal, Caminarte cherche à transformer notre façon de vivre le territoire, en reliant de manière respectueuse l'art, le paysage et la mémoire de Fuencaliente.</p>
+      <p>Cette intervention d'art durable rend un hommage éternel à cette mémoire vivante : aux femmes qui ont soutenu Fuencaliente quand d'autres sont partis, et à ceux qui maintiennent allumée la flamme de notre identité depuis des décennies. Bonne fête à tous et merci de faire partie de notre histoire !</p>
+    </div></section>
+    <section class="section"><div class="section-label">Localisation</div><p class="location">Plaza de La Amistad, Los Quemados · Fuencaliente de La Palma</p><iframe class="map" src="https://www.openstreetmap.org/export/embed.html?bbox=-17.8633%2C28.4892%2C-17.8507%2C28.4971&layer=mapnik&marker=28.493116%2C-17.8570308" loading="lazy"></iframe><a class="maps-btn" href="https://www.google.com/maps?q=28.493116,-17.8570308" target="_blank" rel="noopener noreferrer">⌖ Ouvrir dans Google Maps</a></section>
+    <section class="section tint"><div class="section-label">L'artiste</div><div class="artist-head"><div class="artist-photo"><img src="https://raw.githubusercontent.com/herrumbrevivo/viejas/gh-pages/assets/gus-C-H-hHmh.jpg" alt="Gustavo Díaz"></div><div><div class="artist-name">Gustavo Díaz</div><div class="artist-role">Artiste du recyclage · Activiste environnemental · Gestionnaire de déchets</div></div></div><div class="description"><p>Originaire de Fuencaliente, Gustavo Díaz crée sous la marque Herrumbre Vivo des projets qui associent art, durabilité, identité culturelle et participation citoyenne. Il transforme des matériaux usagés en sculptures et installations qui valorisent les traditions et le patrimoine des îles Canaries.</p><p>Il est le créateur et l'instigateur de CaminArte, un projet innovant de géolocalisation culturelle et d'itinéraires artistiques durables qui fusionne la mémoire historique, le paysage de La Palma et l'art du métal recyclé en faveur de l'environnement.</p></div></section>
+  </main>
+
+  <footer>
+    <a class="footer-brand" href="https://herrumbrevivoarte.com" target="_blank" rel="noopener noreferrer">Herrumbre Vivo</a>
+    <div class="footer-small">Viejas Solteronas · Los Quemados · Fuencaliente</div>
+    <div class="footer-small">CaminArte · Arte con materiales recuperados · 2026</div>
+  </footer>
+</div>
+<script>
+  const buttons=document.querySelectorAll('.lang-btn');
+  const panels=document.querySelectorAll('.lang-panel');
+  buttons.forEach(button=>button.addEventListener('click',()=>{
+    const lang=button.dataset.lang;
+    buttons.forEach(b=>b.classList.remove('active'));
+    panels.forEach(p=>p.classList.remove('active'));
+    button.classList.add('active');
+    document.getElementById('lang-'+lang).classList.add('active');
+    document.documentElement.lang=lang;
+  }));
+</script>
+</body>
+</html>
