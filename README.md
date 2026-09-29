@@ -10,8 +10,9 @@ CaminArte reúne fichas web accesibles mediante QR para obras de Gustavo Díaz r
 - Cada obra se publica como una página estática independiente.
 - La página principal funciona como acceso general y portfolio del proyecto.
 
-## Primera ficha
+## Fichas publicadas
 
 - [El Cuervo](./obra/el-cuervo/)
+- [El Pez de Puntalarga](./obra/pez-puntalarga/)
 
 Proyecto en desarrollo.
