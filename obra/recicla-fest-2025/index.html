@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#2C1A0E">
+  <title>Recicla Fest 2025 · CaminArte · Herrumbre Vivo</title>
+  <meta name="description" content="Recicla Fest 2025, obra de Herrumbre Vivo en Tazacorte, La Palma. Arte con residuos, reutilización, creatividad y sostenibilidad.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+  <style>
+    :root{--marron:#2C1A0E;--marron-oscuro:#1C1008;--dorado:#C8A84B;--arena:#D4B96A;--crema:#FAF6F0;--gris:#7A6A5A;--granate:#8B1A1A;--texto:#25211d}
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{min-height:100vh;background:#eee9e2;color:var(--texto);font-family:'DM Sans',sans-serif}
+    .page{min-height:100vh;background:var(--crema);max-width:480px;margin:0 auto;box-shadow:0 0 24px rgba(0,0,0,.08)}
+    header{background:var(--marron);padding:10px 18px;display:flex;align-items:center;gap:8px;position:sticky;top:0;z-index:50;border-bottom:3px solid var(--dorado)}
+    .header-title{flex:1;font-family:'Playfair Display',serif;font-size:13px;color:var(--arena);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .header-brand{font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--dorado);font-weight:600;flex-shrink:0}
+    .hero{position:relative;height:260px;min-height:260px;overflow:hidden;background:radial-gradient(circle at 80% 20%,#4b2f1c 0,#2C1A0E 38%,#1C1008 100%)}
+    .hero-gradient{position:absolute;inset:auto 0 0;height:75%;background:linear-gradient(to top,rgba(20,10,5,.96),transparent);pointer-events:none}
+    .hero-copy{position:absolute;left:0;right:0;bottom:0;padding:26px 22px 22px}
+    .eyebrow{display:inline-block;padding:4px 9px;border:1px solid rgba(212,185,106,.35);background:rgba(44,26,14,.5);color:var(--arena);font-size:9px;letter-spacing:.13em;text-transform:uppercase;border-radius:4px;margin-bottom:9px}
+    .hero h1{font-family:'Playfair Display',serif;font-size:2.4rem;color:#fff;line-height:1.04;margin-bottom:6px;font-weight:400}
+    .hero-subtitle{font-size:12px;color:var(--arena);font-weight:300}
+    .lang-bar{background:var(--marron);padding:12px 18px;display:flex;gap:7px;overflow-x:auto;border-top:1px solid rgba(212,185,106,.15);scrollbar-width:none;position:sticky;top:39px;z-index:40}
+    .lang-bar::-webkit-scrollbar{display:none}
+    .lang-btn{flex-shrink:0;padding:6px 15px;border-radius:20px;border:1px solid rgba(212,185,106,.25);background:transparent;color:var(--arena);font-family:'DM Sans',sans-serif;font-size:12px;cursor:pointer}
+    .lang-btn.active{background:var(--dorado);border-color:var(--dorado);color:#1a1a1a}
+    .section{padding:25px 22px;border-bottom:1px solid rgba(120,100,80,.13)}
+    .section.tint{background:rgba(44,26,14,.035)}
+    .section-label{display:flex;align-items:center;gap:7px;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--gris);margin-bottom:12px}
+    .section-label::before{content:"";width:16px;height:1px;background:var(--dorado);display:block}
+    .description{font-size:14.5px;line-height:1.74;color:#2a2a2a;font-weight:300}
+    .description p+p{margin-top:13px}
+    .location{font-size:13.5px;color:var(--gris);margin-bottom:13px}
+    .map{width:100%;height:200px;border:0;border-radius:8px;margin:13px 0;display:block}
+    .maps-btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:13px;background:var(--granate);color:#fff;border-radius:8px;text-decoration:none;font-size:14px;font-weight:500}
+    .poi-list{display:flex;flex-direction:column;gap:9px;margin-top:4px}
+    .poi-card{display:flex;align-items:center;padding:13px 15px;border:1px solid rgba(120,100,80,.2);border-radius:10px;gap:11px;text-decoration:none;color:inherit;background:#fff}
+    .poi-info{flex:1}.poi-name{font-size:13.5px;font-weight:500;margin-bottom:2px}.poi-cat{font-size:11.5px;color:var(--gris)}.poi-dist{font-size:12px;color:var(--gris);white-space:nowrap}
+    .artist-head{display:flex;align-items:center;gap:14px;margin-bottom:16px}
+    .artist-photo{width:72px;height:72px;border-radius:50%;overflow:hidden;flex-shrink:0;background:var(--marron);border:2px solid rgba(200,168,75,.4)}
+    .artist-photo img{width:100%;height:100%;object-fit:cover;display:block}
+    .artist-name{font-family:'Playfair Display',serif;font-size:16px;margin-bottom:3px}
+    .artist-role{font-size:11px;color:var(--gris);line-height:1.5}
+    footer{background:var(--marron-oscuro);padding:25px 22px;display:flex;flex-direction:column;align-items:center;gap:9px;border-top:3px solid var(--dorado);text-align:center}
+    .footer-brand{font-family:'Playfair Display',serif;font-size:20px;color:var(--arena);text-decoration:none}
+    .footer-small{color:rgba(212,185,106,.58);font-size:10px;line-height:1.5}
+    .lang-panel{display:none}.lang-panel.active{display:block}
+    @media(min-width:600px){.page{max-width:900px}.hero{height:300px;min-height:300px}.hero h1{font-size:3.2rem}header{padding:12px 28px}.section{padding:30px 32px}.lang-bar{padding:14px 28px;top:43px}.map{height:280px}.poi-list{display:grid;grid-template-columns:1fr 1fr;gap:10px}}
+  </style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <div class="header-title">Recicla Fest 2025 · Tazacorte</div>
+    <div class="header-brand">Herrumbre Vivo</div>
+  </header>
+
+  <div class="hero">
+    <div class="hero-gradient"></div>
+    <div class="hero-copy">
+      <div class="eyebrow">Obra conmemorativa · Feria del Mar</div>
+      <h1>Recicla Fest 2025</h1>
+      <p class="hero-subtitle">Gustavo Díaz · Herrumbre Vivo · 2025</p>
+    </div>
+  </div>
+
+  <div class="lang-bar">
+    <button class="lang-btn active" data-lang="es">Español</button>
+    <button class="lang-btn" data-lang="en">English</button>
+    <button class="lang-btn" data-lang="de">Deutsch</button>
+    <button class="lang-btn" data-lang="fr">Français</button>
+  </div>
+
+  <main class="lang-panel active" id="lang-es">
+    <section class="section">
+      <div class="section-label">Sobre la obra</div>
+      <div class="description">
+        <p>En este Recicla Fest 2025, esta obra Herrumbre Vivo cobra vida como un testimonio palpable de que la sostenibilidad es mucho más que una palabra: es una acción, una transformación y, sobre todo, una oportunidad.</p>
+        <p>Desde Herrumbre Vivo, creemos firmemente en el potencial de lo que otros consideran residuos. A través de la reutilización y la creatividad se demuestra que los materiales tienen muchas historias que contar.</p>
+        <p>Esta obra no solo embellece el espacio, sino que también es un recordatorio visual de la importancia del reciclaje y de cómo nuestras decisiones cotidianas impactan en el futuro de nuestro entorno. Al igual que el Recicla Fest nos invita a reflexionar sobre nuestra relación con el planeta, desde Herrumbre Vivo les animamos a ver el valor oculto en cada objeto y a unirnos al movimiento de construir un mundo más sostenible.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-label">Ubicación</div>
+      <p class="location">Tazacorte · La Palma</p>
+      <iframe class="map" src="https://www.openstreetmap.org/export/embed.html?bbox=-17.9533%2C28.6471%2C-17.9407%2C28.6550&layer=mapnik&marker=28.6510661%2C-17.9470328" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <a class="maps-btn" href="https://www.google.com/maps?q=28.6510661,-17.9470328" target="_blank" rel="noopener noreferrer">⌖ Abrir en Google Maps</a>
+    </section>
+
+    <section class="section">
+      <div class="section-label">Puntos de interés cercanos</div>
+      <div class="poi-list">
+        <a class="poi-card" href="https://www.google.com/maps/search/Puerto+de+Tazacorte" target="_blank" rel="noopener noreferrer"><div class="poi-info"><div class="poi-name">Puerto de Tazacorte</div><div class="poi-cat">Puerto deportivo y pesquero</div></div><span class="poi-dist">300 m</span></a>
+        <a class="poi-card" href="https://www.google.com/maps/search/Playa+de+Tazacorte" target="_blank" rel="noopener noreferrer"><div class="poi-info"><div class="poi-name">Playa de Tazacorte</div><div class="poi-cat">Playa de arena negra volcánica</div></div><span class="poi-dist">400 m</span></a>
+        <a class="poi-card" href="https://www.google.com/maps/search/Faro+de+Tazacorte" target="_blank" rel="noopener noreferrer"><div class="poi-info"><div class="poi-name">Faro de Tazacorte</div><div class="poi-cat">Patrimonio marítimo</div></div><span class="poi-dist">600 m</span></a>
+      </div>
+    </section>
+
+    <section class="section tint">
+      <div class="section-label">El artista</div>
+      <div class="artist-head">
+        <div class="artist-photo"><img src="https://raw.githubusercontent.com/herrumbrevivo/bbaja/main/img/gustavo.jpg" alt="Gustavo Díaz"></div>
+        <div><div class="artist-name">Gustavo Díaz</div><div class="artist-role">Artista del reciclado · Activista medioambiental · Gestor de residuos</div></div>
+      </div>
+      <div class="description">
+        <p>Natural de Fuencaliente, Gustavo Díaz crea bajo la marca Herrumbre Vivo proyectos que combinan arte, sostenibilidad, identidad cultural y participación ciudadana. Transforma materiales en desuso en esculturas e instalaciones que ponen en valor las tradiciones y el patrimonio de Canarias.</p>
+        <p>Es el creador e impulsor de CaminArte, un innovador proyecto de geolocalización cultural e itinerarios artísticos sostenibles que fusiona la memoria histórica, el paisaje palmero y el arte del metal reciclado en favor del medio ambiente.</p>
+      </div>
+    </section>
+  </main>
+
+  <main class="lang-panel" id="lang-en">
+    <section class="section"><div class="section-label">About the artwork</div><div class="description">
+      <p>At this Recicla Fest 2025, this Herrumbre Vivo artwork comes to life as a tangible testament that sustainability is much more than just a word: it's an action, a transformation, and above all, an opportunity.</p>
+      <p>At Herrumbre Vivo, we firmly believe in the potential of what others consider waste. Through reutilization and creativity, we demonstrate that materials have many stories to tell.</p>
+      <p>This artwork not only beautifies the space but also serves as a visual reminder of the importance of recycling and how our daily decisions impact the future of our environment. Just as Recicla Fest invites us to reflect on our relationship with the planet, we at Herrumbre Vivo encourage you to see the hidden value in every object and to join us in the movement to build a more sustainable world.</p>
+    </div></section>
+    <section class="section"><div class="section-label">Location</div><p class="location">Tazacorte · La Palma</p><iframe class="map" src="https://www.openstreetmap.org/export/embed.html?bbox=-17.9533%2C28.6471%2C-17.9407%2C28.6550&layer=mapnik&marker=28.6510661%2C-17.9470328" loading="lazy"></iframe><a class="maps-btn" href="https://www.google.com/maps?q=28.6510661,-17.9470328" target="_blank" rel="noopener noreferrer">⌖ Open in Google Maps</a></section>
+    <section class="section tint"><div class="section-label">The artist</div><div class="artist-head"><div class="artist-photo"><img src="https://raw.githubusercontent.com/herrumbrevivo/bbaja/main/img/gustavo.jpg" alt="Gustavo Díaz"></div><div><div class="artist-name">Gustavo Díaz</div><div class="artist-role">Recycling artist · Environmental activist · Waste manager</div></div></div><div class="description"><p>Born in Fuencaliente, Gustavo Díaz creates projects under the Herrumbre Vivo brand that combine art, sustainability, cultural identity and citizen participation. He transforms discarded materials into sculptures and installations that highlight the traditions and heritage of the Canary Islands.</p><p>He is the creator and driving force behind CaminArte, an innovative cultural geolocation and sustainable artistic itinerary project that brings together historical memory, the landscape of La Palma and recycled-metal art in support of the environment.</p></div></section>
+  </main>
+
+  <main class="lang-panel" id="lang-de">
+    <section class="section"><div class="section-label">Über das Kunstwerk</div><div class="description">
+      <p>Auf diesem Recicla Fest 2025 erwacht dieses Kunstwerk von Herrumbre Vivo als greifbares Zeugnis zum Leben, dass Nachhaltigkeit weit mehr als nur ein Wort ist: Sie ist eine Handlung, eine Transformation und vor allem eine Chance.</p>
+      <p>Bei Herrumbre Vivo glauben wir fest an das Potenzial dessen, was andere als Abfall betrachten. Durch Wiederverwendung und Kreativität wird gezeigt, dass Materialien viele Geschichten zu erzählen haben.</p>
+      <p>Dieses Kunstwerk verschönert nicht nur den Raum, sondern dient auch als visuelle Erinnerung an die Bedeutung des Recyclings und daran, wie unsere täglichen Entscheidungen die Zukunft unserer Umwelt beeinflussen. So wie das Recicla Fest uns einlädt, über unsere Beziehung zum Planeten nachzudenken, ermutigen wir Sie von Herrumbre Vivo, den verborgenen Wert in jedem Objekt zu erkennen und sich der Bewegung anzuschließen, eine nachhaltigere Welt aufzubauen.</p>
+    </div></section>
+    <section class="section"><div class="section-label">Standort</div><p class="location">Tazacorte · La Palma</p><iframe class="map" src="https://www.openstreetmap.org/export/embed.html?bbox=-17.9533%2C28.6471%2C-17.9407%2C28.6550&layer=mapnik&marker=28.6510661%2C-17.9470328" loading="lazy"></iframe><a class="maps-btn" href="https://www.google.com/maps?q=28.6510661,-17.9470328" target="_blank" rel="noopener noreferrer">⌖ In Google Maps öffnen</a></section>
+    <section class="section tint"><div class="section-label">Der Künstler</div><div class="artist-head"><div class="artist-photo"><img src="https://raw.githubusercontent.com/herrumbrevivo/bbaja/main/img/gustavo.jpg" alt="Gustavo Díaz"></div><div><div class="artist-name">Gustavo Díaz</div><div class="artist-role">Recycling-Künstler · Umweltaktivist · Abfallmanager</div></div></div><div class="description"><p>Gustavo Díaz stammt aus Fuencaliente. Unter der Marke Herrumbre Vivo schafft er Projekte, die Kunst, Nachhaltigkeit, kulturelle Identität und Bürgerbeteiligung verbinden. Er verwandelt ausrangierte Materialien in Skulpturen und Installationen, die die Traditionen und das Erbe der Kanarischen Inseln sichtbar machen.</p><p>Er ist Schöpfer und Initiator von CaminArte, einem innovativen Projekt für kulturelle Geolokalisierung und nachhaltige Kunstrouten, das historische Erinnerung, die Landschaft La Palmas und Kunst aus recyceltem Metall im Sinne des Umweltschutzes miteinander verbindet.</p></div></section>
+  </main>
+
+  <main class="lang-panel" id="lang-fr">
+    <section class="section"><div class="section-label">À propos de l'œuvre</div><div class="description">
+      <p>Lors de ce Recicla Fest 2025, cette œuvre de Herrumbre Vivo prend vie comme un témoignage tangible que la durabilité est bien plus qu'un mot : c'est une action, une transformation et, surtout, une opportunité.</p>
+      <p>Chez Herrumbre Vivo, nous croyons fermement au potentiel de ce que d'autres considèrent comme des déchets. À travers la réutilisation et la créativité, nous démontrons que les matériaux ont de nombreuses histoires à raconter.</p>
+      <p>Cette œuvre n'embellit pas seulement l'espace, elle est aussi un rappel visuel de l'importance du recyclage et de la façon dont nos décisions quotidiennes impactent l'avenir de notre environnement. Tout comme le Recicla Fest nous invite à réfléchir sur notre relation avec la planète, nous vous encourageons chez Herrumbre Vivo à voir la valeur cachée dans chaque objet et à rejoindre le mouvement pour construire un monde plus durable.</p>
+    </div></section>
+    <section class="section"><div class="section-label">Localisation</div><p class="location">Tazacorte · La Palma</p><iframe class="map" src="https://www.openstreetmap.org/export/embed.html?bbox=-17.9533%2C28.6471%2C-17.9407%2C28.6550&layer=mapnik&marker=28.6510661%2C-17.9470328" loading="lazy"></iframe><a class="maps-btn" href="https://www.google.com/maps?q=28.6510661,-17.9470328" target="_blank" rel="noopener noreferrer">⌖ Ouvrir dans Google Maps</a></section>
+    <section class="section tint"><div class="section-label">L'artiste</div><div class="artist-head"><div class="artist-photo"><img src="https://raw.githubusercontent.com/herrumbrevivo/bbaja/main/img/gustavo.jpg" alt="Gustavo Díaz"></div><div><div class="artist-name">Gustavo Díaz</div><div class="artist-role">Artiste du recyclage · Activiste environnemental · Gestionnaire de déchets</div></div></div><div class="description"><p>Originaire de Fuencaliente, Gustavo Díaz crée sous la marque Herrumbre Vivo des projets qui associent art, durabilité, identité culturelle et participation citoyenne. Il transforme des matériaux hors d'usage en sculptures et installations qui mettent en valeur les traditions et le patrimoine des îles Canaries.</p><p>Il est le créateur et l'initiateur de CaminArte, un projet innovant de géolocalisation culturelle et d'itinéraires artistiques durables qui réunit mémoire historique, paysage de La Palma et art en métal recyclé au service de l'environnement.</p></div></section>
+  </main>
+
+  <footer>
+    <a class="footer-brand" href="https://herrumbrevivoarte.com" target="_blank" rel="noopener noreferrer">Herrumbre Vivo</a>
+    <div class="footer-small">Recicla Fest 2025 · Tazacorte · La Palma</div>
+    <div class="footer-small">Arte con residuos · 2025</div>
+  </footer>
+</div>
+<script>
+  const buttons=document.querySelectorAll('.lang-btn');
+  const panels=document.querySelectorAll('.lang-panel');
+  buttons.forEach(button=>button.addEventListener('click',()=>{
+    const lang=button.dataset.lang;
+    buttons.forEach(b=>b.classList.remove('active'));
+    panels.forEach(p=>p.classList.remove('active'));
+    button.classList.add('active');
+    document.getElementById('lang-'+lang).classList.add('active');
+    document.documentElement.lang=lang;
+  }));
+</script>
+</body>
+</html>
